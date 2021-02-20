@@ -5,6 +5,6 @@
     $password = $url["pass"];
     $db = substr($url["path"], 1);
 
-    $conn = new mysqli($server, $username, $password, $db);
-    echo $conn ? "connected" : "not connected";
+    $conn = mysqli_connect($server, $username, $password, $db);
+    return $conn;
 ?>

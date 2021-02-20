@@ -1,4 +1,4 @@
-<?php include_once "db_connection.php" ?>
+<?php require_once "scripts/db_connection.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,16 @@
 </head>
 
 <body>
-    <?php echo "Hello World!"; ?>
+    <?php
+    $result = $conn->query("select * from heroku_7e12094ae71a8cd.users");
+    if($result->num_rows != 0)
+    {
+        while($row = mysqli_fetch_object($result))
+        {
+            echo $row->username . "<br>";
+        }
+    }
+    ?>
 
     <!--<script src="js/script.js"></script>-->
 </body>
