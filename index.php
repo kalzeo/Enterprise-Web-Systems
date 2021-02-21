@@ -1,4 +1,4 @@
-<?php require_once "assets/php/Database Functions.php"; ?>
+<?php require "assets/php/Database Functions.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
