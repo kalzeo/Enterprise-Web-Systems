@@ -54,6 +54,7 @@
             if(is_null($value) || empty($value)) $value = "Unspecified";
             else $row->$key = htmlspecialchars($value);
         }
+
         return $row;
     }
 
