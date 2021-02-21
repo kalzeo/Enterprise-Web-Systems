@@ -1,4 +1,4 @@
-<?php require_once "scripts/db_connection.php"; ?>
+<?php require_once "assets/php/Database Functions.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,11 +14,12 @@
 
 <body>
     <?php
-    $result = $conn->query("select * from heroku_7e12094ae71a8cd.users");
-    if($result->num_rows != 0)
+    $result = SelectFromTable("heroku_7e12094ae71a8cd.users", "*");
+    if(NumRows($result) != 0)
     {
         while($row = mysqli_fetch_object($result))
         {
+            $row = SanitizeRowObject($row);
             echo $row->username . "<br>";
         }
     }
