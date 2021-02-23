@@ -44,15 +44,45 @@ $user = unserialize($_SESSION["user"]);
     */
     $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=".getenv("TMDB_API")."&language=en-US");
     $obj = json_decode($json);
-
-    foreach($obj->genres as &$genre)
-    {
-        echo $genre->name;
-    }
     ?>
-    <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="darkSwitch">
-        <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-8 col-lg-6 mx-auto">
+                <!-- Section: Block Content -->
+                <section>
+
+                    <div class="list-group list-group-flush z-depth-1 rounded">
+                        <div class="list-group-item active d-flex justify-content-start align-items-center py-3">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold mb-0">Browse Movie Genres</p>
+                            </div>
+                        </div>
+                        <?php
+                        $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=".getenv("TMDB_API")."&language=en-US");
+                        $obj = json_decode($json);
+
+                        foreach($obj->genres as &$genre)
+                        {
+                            echo "<a href='#' class='list-group-item list-group-item-action d-flex justify-content-between align-items-center'>$genre->name</a>";
+                        }
+                        ?>
+                    </div>
+
+                </section>
+                <!-- Section: Block Content -->
+            </div>
+            <div class="col-md-8 col-lg-6 z-depth-1">
+                <!-- Section: Block Content -->
+                <section>
+
+
+
+                </section>
+                <!-- Section: Block Content -->
+            </div>
+        </div>
     </div>
 
     <script src="assets/js/index.js"></script>

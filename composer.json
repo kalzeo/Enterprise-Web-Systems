@@ -1,7 +1,5 @@
 {
     "require": {
-        "monolog/monolog": "1.0.*",
-        "csanquer/pdo-service-provider": "~1.1dev",
-        "ext-mysqli": "*"
+		"ext-mysqli": "*"
     }
 }
