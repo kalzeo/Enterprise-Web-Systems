@@ -46,41 +46,54 @@ $user = unserialize($_SESSION["user"]);
     $obj = json_decode($json);
     ?>
 
-
     <div class="container my-5">
-        <div class="row">
-            <div class="col-md-8 col-lg-6 mx-auto">
-                <!-- Section: Block Content -->
-                <section>
+        <div class="row gutters-sm">
+            <div class="col-md-4 d-none d-md-block">
+                <div class="card">
+                    <div class="card-body">
+                        <nav class="nav flex-column nav-pills nav-gap-y-1">
+                            <?php
+                            $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=".getenv("TMDB_API")."&language=en-US");
+                            $obj = json_decode($json);
 
-                    <div class="list-group list-group-flush z-depth-1 rounded">
-                        <div class="list-group-item active d-flex justify-content-start align-items-center py-3">
-                            <div class="d-flex flex-column">
-                                <p class="font-weight-bold mb-0">Browse Movie Genres</p>
-                            </div>
-                        </div>
+                            foreach($obj->genres as $index=>&$genre)
+                            {
+                                # Give the first element the active class
+                                $idx = $index == 0 ? 'active' : '';
+                                $selected = $index == 0 ? 'true' : 'false';
+
+                                $genreID = $genre->id;
+                                $genreName = $genre->name;
+                                echo "<a class='nav-link {$idx}' id='{$genreName}-tab' data-toggle='pill' href='#{$genreName}-pill' role='tab' aria-controls='{$genreName}-pill' aria-selected='{$selected}'>{$genreName}</a>";
+                                //echo "<a href='#{$genreID}' data-toggle='tab' href='#{$genreID}' role='tab' aria-controls='{$genreName}' class='nav-item nav-link nav-link-faded {$idx}'>{$genre->name}</a>";
+                            }
+                            ?>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body tab-content">
                         <?php
-                        $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=".getenv("TMDB_API")."&language=en-US");
-                        $obj = json_decode($json);
-
-                        foreach($obj->genres as &$genre)
+                        foreach($obj->genres as $index=>&$genre)
                         {
-                            echo "<a href='#' class='list-group-item list-group-item-action d-flex justify-content-between align-items-center'>$genre->name</a>";
+
+                            # Give the first element the active class
+                            $idx = $index == 0 ? 'active' : '';
+
+                            $genreID = $genre->id;
+                            $genreName = $genre->name;
+
+                            echo "<div class='tab-pane {$idx}' id='{$genreName}-pill' role='tabpanel' aria-labelledby='{$genreName}-tab'>
+                                    <h6 class='dark-grey-text pt-3'><b>{$genreName}</b></h6>
+                                    <hr>
+                                    <p>content will go here</p>
+                                </div>";
                         }
                         ?>
                     </div>
-
-                </section>
-                <!-- Section: Block Content -->
-            </div>
-            <div class="col-md-8 col-lg-6 z-depth-1">
-                <!-- Section: Block Content -->
-                <section>
-
-
-
-                </section>
-                <!-- Section: Block Content -->
+                </div>
             </div>
         </div>
     </div>
