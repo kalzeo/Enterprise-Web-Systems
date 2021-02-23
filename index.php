@@ -31,7 +31,7 @@ $user = unserialize($_SESSION["user"]);
     </nav>
 
     <?php
-
+    /*
     $result = SelectFromTable("heroku_7e12094ae71a8cd.users", "*", "id = 1");
     if(NumRows($result) != 0)
     {
@@ -41,7 +41,19 @@ $user = unserialize($_SESSION["user"]);
             echo $row->username . "<br>";
         }
     }
+    */
+    $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=".getenv("TMDB_API")."&language=en-US");
+    $obj = json_decode($json);
+
+    foreach($obj->genres as &$genre)
+    {
+        echo $genre->name;
+    }
     ?>
+    <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="darkSwitch">
+        <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+    </div>
 
     <script src="assets/js/index.js"></script>
 </body>

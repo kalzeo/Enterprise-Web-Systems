@@ -16,7 +16,7 @@ $(document).ready(function()
                 if(result === "Success")
                     window.location.href = "index.php";
                 else
-                    alert("Invalid Credentials");
+                    alert(result);
             },
             error: function()
             {
