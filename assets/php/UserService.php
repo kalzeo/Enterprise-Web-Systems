@@ -1,66 +1,56 @@
 <?php
-	require_once "User.php";
-    require_once "Database Functions.php";
+require_once "User.php";
+require_once "Database Functions.php";
 
-    $userService = new UserService($_POST["username"], $_POST["password"]);
-    $userService->Login();
+$userService = new UserService($_POST["username"], $_POST["password"]);
+$userService->Login();
 
-	class UserService
-	{
-		private $_username;
-		private $_password;
+class UserService
+{
+    private $_username;
+    private $_password;
 
-		public function __construct($username, $password)
-		{
-		    $this->_username = SanitizeString($username);
-		    $this->_password = SanitizeString($password);
-		}
-		
-		public function Login()
-		{
-			// put validation in for blanks
-			if ($this->_Exists() && $this->_CheckCredentials())
-			{
-				session_start();
-				$user = new User($this->_GetUsername());
-				
-				if($user->GetPermission() == "Admin")
-					$_SESSION["user"] = serialize(new Admin($this->_GetUsername()));
-				else
-					$_SESSION["user"] = serialize($user);
+    public function __construct($username, $password)
+    {
+        $this->_username = SanitizeString($username);
+        $this->_password = SanitizeString($password);
+    }
 
-				echo "Success";
-			}
-			else
-			{
-				echo "Invalid Credentials";
-			}
-		}
-		
-		private function _Exists()
-		{
-			$result = SelectFromTable("heroku_7e12094ae71a8cd.users", "*", "username = '{$this->_GetUsername()}'");
-			return NumRows($result) != 0;
-		}
+    public function Login()
+    {
+        // put validation in for blanks
+        if ($this->_CheckCredentials())
+        {
+            session_start();
+            $user = new User($this->_GetUsername());
 
-		private function _CheckCredentials()
-		{
-			if($this->_Exists())
-			{
-				$result = SelectFromTable("heroku_7e12094ae71a8cd.users","*", "username = '{$this->_GetUsername()}' AND password = '{$this->_GetPassword()}'");
-                return NumRows($result) != 0;
-			}
-			return false;
-		}
+            if($user->GetPermission() == "Admin")
+                $_SESSION["user"] = serialize(new Admin($this->_GetUsername()));
+            else
+                $_SESSION["user"] = serialize($user);
 
-		private function _GetUsername()
-		{
-			return $this->_username;
-		}
-		
-		private function _GetPassword()
-		{
-			return $this->_password;
-		}
-	}
+            echo "Success";
+        }
+        else
+        {
+            echo "Invalid Credentials";
+        }
+    }
+
+    private function _CheckCredentials()
+    {
+        $result = SelectFromTable("heroku_7e12094ae71a8cd.users","*", "username = '{$this->_GetUsername()}' AND password = '{$this->_GetPassword()}'");
+        return NumRows($result) != 0;
+    }
+
+    private function _GetUsername()
+    {
+        return $this->_username;
+    }
+
+    private function _GetPassword()
+    {
+        return $this->_password;
+    }
+}
 ?>
