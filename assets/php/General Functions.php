@@ -1,9 +1,5 @@
 <?php
-require_once "Database Functions.php";
 require_once "Page Functions.php";
-
-//require_once "User.php";
-$conn = DatabaseConnection();
 
 /**
  * Check if a user is logged in on the current session.

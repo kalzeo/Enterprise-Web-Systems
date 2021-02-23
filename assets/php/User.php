@@ -57,9 +57,9 @@ public function GetPermission()
 
 class Admin extends User
 {
-public function __construct($username)
-{
-    parent::__construct($username);
-}
+    public function __construct($username)
+    {
+        parent::__construct($username);
+    }
 }
 ?>
