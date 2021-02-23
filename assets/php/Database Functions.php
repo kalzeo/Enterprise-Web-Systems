@@ -32,11 +32,12 @@
      * Select items from a specific table by querying it.
      * @param $table - The table to be queried.
      * @param $selections - The items to be selected from the table.
+     * @param $where_clause - Query filter.
      * @return bool|mysqli_result - Returns the result of the query.
      */
-    function SelectFromTable($table, $selections)
+    function SelectFromTable($table, $selections, $where_clause)
     {
-        $sql = "SELECT {$selections} FROM {$table}";
+        $sql = "SELECT {$selections} FROM {$table} WHERE {$where_clause}";
         return QueryTable($sql);
     }
 
