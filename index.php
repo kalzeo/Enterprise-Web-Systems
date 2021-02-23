@@ -61,7 +61,7 @@ $user = unserialize($_SESSION["user"]);
 
                                 $genreID = $genre->id;
                                 $genreName = $genre->name;
-                                echo "<a class='nav-link {$idx}' id='{$genreName}-tab' data-toggle='pill' href='#{$genreName}-pill' role='tab' aria-controls='{$genreName}-pill' aria-selected='{$selected}'>{$genreName}</a>";
+                                echo "<a class='nav-link {$idx}' id='{$genreID}-tab' data-toggle='pill' href='#{$genreName}-pill' role='tab' aria-controls='{$genreName}-pill' aria-selected='{$selected}'>{$genreName}</a>";
                             }
                             ?>
                         </nav>
@@ -80,19 +80,19 @@ $user = unserialize($_SESSION["user"]);
                             $genreID = $genre->id;
                             $genreName = $genre->name;
 
-                            $json2 = file_get_contents("https://api.themoviedb.org/3/list/{$genreID}?api_key=" . getenv("TMDB_API") . "&language=en-US");
+                            $json2 = file_get_contents("https://api.themoviedb.org/3/discover/movie?api_key=" . getenv("TMDB_API") . "&with_genres={$genreID}");
                             $obj2 = json_decode($json2);
 
                             echo "<div class='tab-pane {$idx}' id='{$genreName}-pill' role='tabpanel' aria-labelledby='{$genreName}-tab'>
                                     <h6 class='dark-grey-text pt-3'><b>{$genreName}</b></h6>
                                     <hr>";
 
-                            foreach ($obj2->items as $index2 => &$movie)
+                            foreach ($obj2->results as $index2 => &$movie)
                             {
                                 if($index2 == 10) break;
 
                                 echo "<div class='card hoverable mt-3'>
-                                          <img src='https://image.tmdb.org/t/p/w500{$movie->backdrop_path}' class='card-img-top' />
+                                          <img src='https://image.tmdb.org/t/p/w500{$movie->poster_path}' class='card-img-top' />
                                           <div class='card-body'>
                                             <h5 class='card-title'>{$movie->title}</h5>
                                             <p class='card-text movie-description mb-2'>{$movie->overview}</p>
