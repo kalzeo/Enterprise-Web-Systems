@@ -53,5 +53,10 @@ class MovieClass
     {
         return $this->_voteAverage;
     }
+
+    public function GetID()
+    {
+        return $this->_id;
+    }
 }
 ?>

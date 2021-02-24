@@ -184,7 +184,7 @@ End Breadcrumb and Page Title
 /*
 Movie Card
  */
-#movieCard
+.movieCard
 {
     height: 725px !important;
     max-height: 725px !important;
@@ -211,6 +211,13 @@ Movie Card
     width: 30% !important;
     border-top-right-radius: 0 !important;
     border-bottom-left-radius: calc(0.25rem - 1px) !important;
+}
+
+#buy_movie
+{
+    width: 100% !important;
+    outline: none !important;
+    text-align: center !important;
 }
 
 /*******************

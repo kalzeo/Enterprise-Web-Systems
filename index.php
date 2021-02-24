@@ -70,7 +70,7 @@ $user = unserialize($_SESSION["user"]);
             </div>
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-body tab-content" id="movieCard">
+                    <div class="card-body tab-content movieCard">
                         <?php
                         foreach($obj->genres as $index=>&$genre) {
 
