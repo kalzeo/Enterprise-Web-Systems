@@ -2,6 +2,8 @@
 session_start();
 require_once "include/header.php";
 require_once "assets/php/General Functions.php";
+require "assets/php/Database Functions.php";
+require_once "assets/php/Page Functions.php";
 
 // If we're already logged in then there's no point seeing the login page so redirect back to the homepage
 if(LoggedIn())
@@ -22,7 +24,16 @@ SetCurrentPage("Login");
 
 <body>
     <?php include_once "include/navbar.php"; ?>
-
+    <nav aria-label="breadcrumb " class="first d-md-flex">
+        <ol class="breadcrumb indigo lighten-6 first-1 shadow-lg">
+            <li class="breadcrumb-item font-weight-bold">
+                <a class="black-text text-uppercase " href="index.php"><span>home</span></a>
+                <i class="fas fa-angle-right mt-1 ml-3 breadcrumb-arrow"></i>
+            </li>
+            <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="login.php"><span>login</span></a></li>
+            <?php include "include/dark_mode.php"; ?>
+        </ol>
+    </nav>
 
     <div class="container my-5 px-0">
         <!--Section: Content-->
@@ -60,6 +71,5 @@ SetCurrentPage("Login");
     </div>
 
     <script src="assets/js/login.js"></script>
-    <script src="assets/js/dark-mode-switch.js" type="text/javascript"></script>
 </body>
 </html>

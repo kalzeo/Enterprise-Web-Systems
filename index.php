@@ -28,6 +28,10 @@ $obj = json_decode($json);
     </nav>
 
     <div class="container my-5">
+        <?php include "include/random_movie_header.php" ?>
+
+
+        <!--Section: Content-->
         <div class="row gutters-sm">
             <div class="col-md-4 d-none d-md-block">
                 <div class="card">
