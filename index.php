@@ -20,11 +20,11 @@ $user = unserialize($_SESSION["user"]);
 
 <body>
     <?php include "include/navbar.php"; ?>
-    <nav aria-label="breadcrumb " class="first d-md-flex">
-        <ol class="breadcrumb indigo lighten-6 first-1 shadow-lg">
+    <nav aria-label="breadcrumb" class="first d-md-flex">
+        <ol class="breadcrumb first-1 shadow-lg">
             <li class="breadcrumb-item font-weight-bold">
                 <a class="black-text text-uppercase " href="index.php"><span>home</span></a>
-                <img class="ml-md-3 arrow-icon" src="https://img.icons8.com/offices/30/000000/double-right.png" width="20" height="20" alt="Breadcrumb Arrow">
+                <i class="fas fa-angle-right mt-1 ml-3 breadcrumb-arrow"></i>
             </li>
             <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="index.php"><span>index</span></a></li>
         </ol>
@@ -34,11 +34,6 @@ $user = unserialize($_SESSION["user"]);
     $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=".getenv("TMDB_API")."&language=en-US");
     $obj = json_decode($json);
     ?>
-
-    <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="darkSwitch" />
-        <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-    </div>
 
     <div class="container my-5">
         <div class="row gutters-sm">
@@ -104,7 +99,5 @@ $user = unserialize($_SESSION["user"]);
     </div>
 
     <script src="assets/js/index.js"></script>
-
-    <script src="assets/vendor/dark mode switch/js/dark-mode-switch.min.js" type="text/javascript"></script>
 </body>
 </html>

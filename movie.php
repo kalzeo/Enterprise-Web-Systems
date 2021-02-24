@@ -70,7 +70,7 @@ SetCurrentPage($movie->GetTitle());
 
                                     <!-- Grid column -->
                                     <div class="col-xl-10 col-md-11 col-10">
-                                        <h5 class="font-weight-bold mb-3">Overview</h5>
+                                        <h5 class="font-weight-bold mb-3 movie-information-header">Overview</h5>
                                         <p class="grey-text"><?php echo $movie->GetOverview(); ?></p>
                                     </div>
                                     <!-- Grid column -->
@@ -89,7 +89,7 @@ SetCurrentPage($movie->GetTitle());
 
                                     <!-- Grid column -->
                                     <div class="col-xl-10 col-md-11 col-10">
-                                        <h5 class="font-weight-bold mb-3">Runtime</h5>
+                                        <h5 class="font-weight-bold mb-3 movie-information-header">Runtime</h5>
                                         <p class="grey-text"><?php echo "{$movie->GetRuntime()} minutes."; ?></p>
                                     </div>
                                     <!-- Grid column -->
@@ -106,7 +106,7 @@ SetCurrentPage($movie->GetTitle());
 
                                     <!-- Grid column -->
                                     <div class="col-xl-10 col-md-11 col-10">
-                                        <h5 class="font-weight-bold mb-3">Rating</h5>
+                                        <h5 class="font-weight-bold mb-3 movie-information-header">Rating</h5>
                                         <p class="grey-text mb-0"><?php echo "{$movie->GetVoteAverage()} / 10"; ?></p>
                                     </div>
                                     <!-- Grid column -->

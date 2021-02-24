@@ -39,3 +39,31 @@
 {
   color: #BB86FC !important;
 }
+
+/* Dark mode for the page breadcrumbs and links */
+[data-theme="dark"] .breadcrumb
+{
+  background-color: rgba(18, 18, 18, 0.8) !important;
+  color: #eee !important;
+}
+
+[data-theme="dark"] .breadcrumb-item *
+{
+  color: #eee !important;
+}
+
+[data-theme="dark"] .list-group-item
+{
+  background-color: #BB86FC !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .movie-information-header
+{
+  color: #BB86FC !important;
+}
+
+[data-theme="dark"] .far
+{
+  color: #eee !important;
+}

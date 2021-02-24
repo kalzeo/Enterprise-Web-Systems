@@ -25,7 +25,10 @@ $user = GetUser();
             <?php endif; ?>
         </ul>
         <ul class="navbar-nav ml-auto navbar-right-top">
-
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+                <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+            </div>
             <!-- If a user is logged in then give them access to the dropdown menu for profile, settings, etc -->
             <?php if (LoggedIn()): ?>
             <li class="nav-item dropdown nav-user">
@@ -47,4 +50,5 @@ $user = GetUser();
             <?php endif; ?>
         </ul>
     </div>
+    <script src="assets/vendor/dark mode switch/js/dark-mode-switch.min.js" type="text/javascript"></script>
 </nav>
