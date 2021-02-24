@@ -17,16 +17,17 @@ $user = GetUser();
                 <a class="nav-link breadcrumb-item font-weight-bold black-text text-uppercase" href="index.php">Home</a>
             </li>
 
-            <!-- Show the A/B Metric Dashboard if an authorised user is logged in -->
             <?php if (LoggedIn() and $user->GetPermission() == "Admin"): ?>
+            <!-- Show the A/B Metric Dashboard if an authorised user is logged in -->
             <li class="nav-item">
                 <a class="nav-link breadcrumb-item font-weight-bold black-text text-uppercase" href="metrics.php">A/B Metric Dashboard</a>
             </li>
             <?php endif; ?>
         </ul>
         <ul class="navbar-nav ml-auto navbar-right-top">
-            <!-- If a user is logged in then give them access to the dropdown menu for profile, settings, etc -->
+
             <?php if (LoggedIn()): ?>
+            <!-- If a user is logged in then give them access to the dropdown menu for profile, settings, etc -->
             <li class="nav-item dropdown nav-user">
                 <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="rounded-circle user-avatar-md text-uppercase"><?php echo $user->GetUsername()[0]; ?></span></a>
@@ -38,8 +39,8 @@ $user = GetUser();
                 </div>
             </li>
 
-            <!-- Otherwise, give them the option to login by pressing a button -->
             <?php else: ?>
+            <!-- Otherwise, give them the option to login by pressing a button -->
             <a href="login.php"><button type="button" id="loginButton" class="btn btn-dark btn-sm">
                 <i class="fas fa-key text-white"></i>
             </button></a>
