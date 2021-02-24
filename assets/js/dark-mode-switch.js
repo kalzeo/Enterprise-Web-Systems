@@ -1,5 +1,4 @@
-// Taken from https://github.com/coliff/dark-mode-switch
-// Code has been changed from vanilla JS to jQuery
+// Taken from https://github.com/coliff/dark-mode-switch and adapted
 
 function initTheme()
 {
@@ -10,6 +9,8 @@ function initTheme()
 function resetTheme()
 {
   darkSwitch.checked ? ($("body").attr("data-theme", "dark"), localStorage.setItem("darkSwitch", "dark")) : ($("body").removeAttr("data-theme"), localStorage.removeItem("darkSwitch"));
+
+
 }
 
 // Initialise the dark theme when the DOM is ready

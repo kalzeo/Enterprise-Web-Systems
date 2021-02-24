@@ -37,6 +37,9 @@ echo '<noscript>Enable JavaScript</noscript>
     <script src="assets/vendor/bootstrap/js/mdb.min.js" type="text/javascript"></script>
     <script src="assets/vendor/bootstrap/js/popper.js" type="text/javascript"></script>
     
+    <!-- Charts.JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    
     <!-- Dark Mode Stylesheet -->
     <link type="text/css" rel="stylesheet" href="assets/css/dark-mode.css" />
     

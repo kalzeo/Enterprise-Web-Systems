@@ -20,7 +20,7 @@ $user = GetUser();
             <!-- Show the A/B Metric Dashboard if an authorised user is logged in -->
             <?php if (LoggedIn() and $user->GetPermission() == "Admin"): ?>
             <li class="nav-item">
-                <a class="nav-link breadcrumb-item font-weight-bold black-text text-uppercase" href="index.php">A/B Metric Dashboard</a>
+                <a class="nav-link breadcrumb-item font-weight-bold black-text text-uppercase" href="metrics.php">A/B Metric Dashboard</a>
             </li>
             <?php endif; ?>
         </ul>
