@@ -12,15 +12,15 @@ $user = GetUser();
     </button>
 
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto navbar-left-top">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="index.php">Home</a>
+                <a class="nav-link breadcrumb-item font-weight-bold black-text text-uppercase" href="index.php">Home</a>
             </li>
 
             <!-- Show the A/B Metric Dashboard if an authorised user is logged in -->
             <?php if (LoggedIn() and $user->GetPermission() == "Admin"): ?>
             <li class="nav-item">
-                <a class="nav-link" href="index.php">A/B Metric Dashboard</a>
+                <a class="nav-link breadcrumb-item font-weight-bold black-text text-uppercase" href="index.php">A/B Metric Dashboard</a>
             </li>
             <?php endif; ?>
         </ul>

@@ -31,20 +31,14 @@ $user = unserialize($_SESSION["user"]);
     </nav>
 
     <?php
-    /*
-    $result = SelectFromTable("heroku_7e12094ae71a8cd.users", "*", "id = 1");
-    if(NumRows($result) != 0)
-    {
-        while($row = mysqli_fetch_object($result))
-        {
-            $row = SanitizeRowObject($row);
-            echo $row->username . "<br>";
-        }
-    }
-    */
     $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=".getenv("TMDB_API")."&language=en-US");
     $obj = json_decode($json);
     ?>
+
+    <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="darkSwitch" />
+        <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+    </div>
 
     <div class="container my-5">
         <div class="row gutters-sm">
@@ -84,8 +78,8 @@ $user = unserialize($_SESSION["user"]);
                             $obj2 = json_decode($json2);
 
                             echo "<div class='tab-pane {$idx}' id='{$genreName}-pill' role='tabpanel' aria-labelledby='{$genreName}-tab'>
-                                    <h6 class='dark-grey-text pt-3'><b>{$genreName}</b></h6>
-                                    <hr>";
+                                    <h6 class='font-weight-bold dark-grey-text pt-3 movie_category_title'>{$genreName}</h6>
+                                    <hr class='dark-grey-text'>";
 
                             foreach ($obj2->results as $index2 => &$movie)
                             {
@@ -110,5 +104,7 @@ $user = unserialize($_SESSION["user"]);
     </div>
 
     <script src="assets/js/index.js"></script>
+
+    <script src="assets/vendor/dark mode switch/js/dark-mode-switch.min.js" type="text/javascript"></script>
 </body>
 </html>
