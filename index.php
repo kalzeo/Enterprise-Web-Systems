@@ -8,7 +8,8 @@ require_once "assets/php/Page Functions.php";
 
 SetCurrentPage("Home");
 $user = unserialize($_SESSION["user"]);
-
+$json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=".getenv("TMDB_API")."&language=en-US");
+$obj = json_decode($json);
 ?>
 
 <!DOCTYPE html>
@@ -22,18 +23,9 @@ $user = unserialize($_SESSION["user"]);
     <?php include "include/navbar.php"; ?>
     <nav aria-label="breadcrumb" class="first d-md-flex">
         <ol class="breadcrumb first-1 shadow-lg">
-            <li class="breadcrumb-item font-weight-bold">
-                <a class="black-text text-uppercase " href="index.php"><span>home</span></a>
-                <i class="fas fa-angle-right mt-1 ml-3 breadcrumb-arrow"></i>
-            </li>
-            <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="index.php"><span>index</span></a></li>
+            <?php include "include/dark_mode.php"; ?>
         </ol>
     </nav>
-
-    <?php
-    $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=".getenv("TMDB_API")."&language=en-US");
-    $obj = json_decode($json);
-    ?>
 
     <div class="container my-5">
         <div class="row gutters-sm">

@@ -33,9 +33,10 @@ SetCurrentPage($movie->GetTitle());
     <ol class="breadcrumb indigo lighten-6 first-1 shadow-lg">
         <li class="breadcrumb-item font-weight-bold">
             <a class="black-text text-uppercase " href="index.php"><span>home</span></a>
-            <img class="ml-md-3 arrow-icon" src="https://img.icons8.com/offices/30/000000/double-right.png" width="20" height="20" alt="Breadcrumb Arrow">
+            <i class="fas fa-angle-right mt-1 ml-3 breadcrumb-arrow"></i>
         </li>
-        <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="movie.php?movie_id=<?php echo $movie->GetID(); ?>"><span>Movie</span></a></li>
+        <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="movie.php?movie_id=<?php echo $movie->GetID(); ?>"><span><?php echo $movie->GetTitle(); ?></span></a></li>
+        <?php include "include/dark_mode.php"; ?>
     </ol>
 </nav>
 
@@ -127,5 +128,6 @@ SetCurrentPage($movie->GetTitle());
         </div>
     </div>
 </div>
+<script src="assets/js/dark-mode-switch.js" type="text/javascript"></script>
 </body>
 </html>

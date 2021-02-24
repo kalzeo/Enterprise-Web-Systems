@@ -1,0 +1,53 @@
+/* Dark mode toggles for specific elements */
+/* Each background is set to a dark grey with a slight white overlay by changing the alpha value */
+
+/* Dark mode for the entire body */
+[data-theme="dark"]
+{
+  background-color: rgba(18, 18, 18, 0.8) !important;
+  color: #eee !important;
+}
+
+/* Sets all sidebars to a purple background and white text */
+[data-theme="dark"] .nav-pills .nav-link.active,
+[data-theme="dark"] .list-group-item
+{
+  background-color: #BB86FC !important;
+  color: #fff !important;
+}
+
+/* Sets all text to white */
+[data-theme="dark"] .nav-link,
+[data-theme="dark"] .breadcrumb-item *,
+[data-theme="dark"] .far
+{
+  color: #eee !important;
+}
+
+/* Sets all headings to purple */
+[data-theme="dark"] .movie_category_title,
+[data-theme="dark"] .movie-information-header
+{
+  color: #BB86FC !important;
+}
+
+/* Dark mode for the page breadcrumbs */
+[data-theme="dark"] .breadcrumb
+{
+  background-color: rgba(18, 18, 18, 0.8) !important;
+  color: #eee !important;
+}
+
+/* Dark mode for the movie cards */
+[data-theme="dark"] .card,
+[data-theme="dark"] .card-title
+{
+  background-color: rgba(18, 18, 18, 0.8) !important;
+  color: #BB86FC !important;
+}
+
+/* Dark mode for the navbar */
+[data-theme="dark"] .navbar
+{
+  background-color: rgba(18, 18, 18, 0.8) !important;
+}

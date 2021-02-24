@@ -37,13 +37,11 @@ echo '<noscript>Enable JavaScript</noscript>
     <script src="assets/vendor/bootstrap/js/mdb.min.js" type="text/javascript"></script>
     <script src="assets/vendor/bootstrap/js/popper.js" type="text/javascript"></script>
     
-    <!-- Dark Mode -->
-    <link type="text/css" rel="stylesheet" href="assets/vendor/dark mode switch/css/dark-mode.css" />
+    <!-- Dark Mode Stylesheet -->
+    <link type="text/css" rel="stylesheet" href="assets/css/dark-mode.css" />
     
     <!-- Default Stylesheet -->
     <link type="text/css" rel="stylesheet" href="assets/css/styles.css" />
-    
-    
     ';
 }
 ?>

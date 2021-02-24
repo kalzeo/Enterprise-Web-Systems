@@ -60,5 +60,6 @@ SetCurrentPage("Login");
     </div>
 
     <script src="assets/js/login.js"></script>
+    <script src="assets/js/dark-mode-switch.js" type="text/javascript"></script>
 </body>
 </html>
