@@ -91,13 +91,13 @@ $user = unserialize($_SESSION["user"]);
                             {
                                 if($index2 == 10) break;
 
-                                echo "<div class='card hoverable mt-3'>
-                                          <img src='https://image.tmdb.org/t/p/w500{$movie->poster_path}' class='card-img-top' />
+                                echo "<a href='movie.php?movie_id={$movie->id}'><div class='card hoverable mt-3'>
+                                          <img src='https://image.tmdb.org/t/p/w500{$movie->poster_path}' class='card-img-top' alt='{$movie->title} Movie Poster'/>
                                           <div class='card-body'>
                                             <h5 class='card-title'>{$movie->title}</h5>
                                             <p class='card-text movie-description mb-2'>{$movie->overview}</p>
                                           </div>
-                                        </div>
+                                        </div></a>
                                        ";
                             }
                             echo "</div>";
