@@ -13,7 +13,7 @@ class UserService
     public function __construct($username, $password)
     {
         $this->_username = SanitizeString($username);
-        $this->_password = SanitizeString($password);
+        $this->_password = hash("sha256", SanitizeString($password));
     }
 
     public function Login()

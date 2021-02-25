@@ -10,11 +10,7 @@ require_once "assets/php/Movie.php";
 
 $user = unserialize($_SESSION["user"]);
 
-if(!isset($_GET["movie_id"]))
-{
-    header("Location: index.php", true);
-    die();
-}
+if(!isset($_GET["movie_id"])) header("Location: index.php");
 
 $movie = new Movie($_GET["movie_id"]);
 SetCurrentPage($movie->GetTitle());

@@ -41,6 +41,14 @@ function SelectFromTable($table, $selections, $where_clause)
     return QueryTable($sql);
 }
 
+function InsertUser($username, $password)
+{
+    $username = SanitizeString($username);
+    $password = hash("sha256", SanitizeString($password));
+    $sql = "INSERT INTO heroku_7e12094ae71a8cd.users (username, password, permission) VALUES ('{$username}', '{$password}', 'User')";
+    return QueryTable($sql);
+}
+
 /**
  * Takes a row outputted by mysqli_fetch_object and sanitizes each item with
  * htmlspecialchars to convert special characters to HTML entities to prevent XSS.
