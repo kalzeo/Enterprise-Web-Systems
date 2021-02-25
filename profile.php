@@ -6,11 +6,14 @@ require_once "assets/php/Page Functions.php";
 require_once "assets/php/General Functions.php";
 require_once "assets/php/User.php";
 
+if(!LoggedIn()) header("Location: index.php");
 $user = GetUser();
-if(!LoggedIn())
-    header("Location: index.php");
 
-SetCurrentPage($user->GetUsername());
+if(isset($_GET["username"]) and $_GET["username"] != $user->GetUsername())
+    $user = new User($_GET["username"]);
+
+$username = $user->GetUsername();
+SetCurrentPage($username);
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +31,11 @@ SetCurrentPage($user->GetUsername());
             <a class="black-text text-uppercase " href="index.php"><span>home</span></a>
             <i class="fas fa-angle-right mt-1 ml-3 breadcrumb-arrow"></i>
         </li>
-        <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="index.php"><span>Profile</span></a></li>
+        <li class="breadcrumb-item font-weight-bold">
+            <a class="black-text text-uppercase " href="profile.php"><span>profile</span></a>
+            <i class="fas fa-angle-right mt-1 ml-3 breadcrumb-arrow"></i>
+        </li>
+        <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="profile.php?username=<?php echo $username; ?>"><span><?php echo $username; ?></span></a></li>
         <?php include "include/dark_mode.php"; ?>
     </ol>
 </nav>

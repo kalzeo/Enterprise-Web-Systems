@@ -27,7 +27,7 @@ $obj = json_decode($json);
     </nav>
 
     <div class="container my-5">
-        <?php include "include/random_movie_header.php" ?>
+        <?php if(!LoggedIn()) include "include/random_movie_header.php" ?>
 
 
         <!--Section: Content-->

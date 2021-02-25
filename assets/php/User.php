@@ -4,6 +4,7 @@ require_once "Database Functions.php";
 
 class User
 {
+    private $_id;
     private $_username;
     private $_permission;
     private $_preservedUsername;
@@ -22,6 +23,8 @@ class User
             while($row = mysqli_fetch_object($result))
             {
                 $row = SanitizeRowObject($row);
+                $this->_id = $row->id;
+                $this->_username = $row->username;
                 $this->_preservedUsername = $row->username;
                 $this->_permission = $row->permission;
             }
@@ -53,6 +56,11 @@ class User
     public function GetPermission()
     {
         return $this->_permission;
+    }
+
+    public function GetID()
+    {
+        return $this->_id;
     }
 }
 
