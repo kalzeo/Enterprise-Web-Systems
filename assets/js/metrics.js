@@ -36,7 +36,7 @@ $(document).ready(function ()
 
     // Create an AJAX call to fetch the pie chart information from the server
     $.ajax({
-        url: 'assets/php/metric_chart.php',
+        url: 'assets/php/get_metrics.php',
         type: 'GET',
         dataType:"json",
         success: function(data)

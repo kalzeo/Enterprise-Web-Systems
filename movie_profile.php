@@ -5,7 +5,7 @@ require_once "include/header.php";
 require "assets/php/Database Functions.php";
 require_once "assets/php/General Functions.php";
 require_once "assets/php/Page Functions.php";
-require_once "assets/php/MovieClass.php";
+require_once "assets/php/Movie.php";
 
 
 $user = unserialize($_SESSION["user"]);
@@ -16,7 +16,7 @@ if(!isset($_GET["movie_id"]))
     die();
 }
 
-$movie = new MovieClass($_GET["movie_id"]);
+$movie = new Movie($_GET["movie_id"]);
 SetCurrentPage($movie->GetTitle());
 ?>
 

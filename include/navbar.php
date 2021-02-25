@@ -27,20 +27,19 @@ $user = GetUser();
         <ul class="navbar-nav ml-auto navbar-right-top">
 
             <?php if (LoggedIn()): ?>
-            <!-- If a user is logged in then give them access to the dropdown menu for profile, settings, etc -->
+            <!-- Dropdown menu for profile, settings, etc for logged in users -->
             <li class="nav-item dropdown nav-user">
                 <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="rounded-circle user-avatar-md text-uppercase"><?php echo $user->GetUsername()[0]; ?></span></a>
 
                 <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenu">
-                    <a class="dropdown-item" href="index.php"><i class="fas fa-user mr-2"></i>Account</a>
-                    <a class="dropdown-item" href="index.php"><i class="fas fa-cog mr-2"></i>Settings</a>
+                    <a class="dropdown-item" href="profile.php"><i class="fas fa-user mr-2"></i>Account</a>
                     <a class="dropdown-item" href="assets/php/logout.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
                 </div>
             </li>
 
             <?php else: ?>
-            <!-- Otherwise, give them the option to login by pressing a button -->
+            <!-- Login button -->
             <a href="login.php"><button type="button" id="loginButton" class="btn btn-dark btn-sm">
                 <i class="fas fa-key text-white"></i>
             </button></a>

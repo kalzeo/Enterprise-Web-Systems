@@ -1,6 +1,6 @@
 <?php
 
-class MovieClass
+class Movie
 {
     private $_id;
     private $_title;
@@ -59,4 +59,3 @@ class MovieClass
         return $this->_id;
     }
 }
-?>

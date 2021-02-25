@@ -7,7 +7,6 @@ require_once "assets/php/General Functions.php";
 require_once "assets/php/Page Functions.php";
 
 SetCurrentPage("Home");
-$user = unserialize($_SESSION["user"]);
 $json = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=".getenv("TMDB_API")."&language=en-US");
 $obj = json_decode($json);
 ?>
@@ -76,7 +75,7 @@ $obj = json_decode($json);
                             {
                                 if($index2 == 10) break;
 
-                                echo "<a href='movie.php?movie_id={$movie->id}'><div class='card hoverable mt-3'>
+                                echo "<a href='movie_profile.php?movie_id={$movie->id}'><div class='card hoverable mt-3'>
                                           <img src='https://image.tmdb.org/t/p/w500{$movie->poster_path}' class='card-img-top' alt='{$movie->title} Movie Poster'/>
                                           <div class='card-body'>
                                             <h5 class='card-title'>{$movie->title}</h5>

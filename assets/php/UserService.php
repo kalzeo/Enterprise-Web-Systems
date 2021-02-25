@@ -53,4 +53,3 @@ class UserService
         return $this->_password;
     }
 }
-?>

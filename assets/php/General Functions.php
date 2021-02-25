@@ -1,6 +1,4 @@
 <?php
-require_once "Page Functions.php";
-
 /**
  * Check if a user is logged in on the current session.
  * @return bool - True if logged in else False.
@@ -12,10 +10,10 @@ function LoggedIn()
 
 /**
  * Gets the user class thats stored in the session.
- * @return mixed - Returns an unserialized User class.
+ * @return false|mixed - Returns an unserialized User class if a user is logged in otherwise false.
  */
 function GetUser()
 {
-    return unserialize($_SESSION["user"]);
+    return LoggedIn() ? unserialize($_SESSION["user"]) : false;
 }
 ?>

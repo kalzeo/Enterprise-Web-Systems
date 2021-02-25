@@ -1,16 +1,11 @@
 <?php
-session_start();
 require_once "include/header.php";
 require_once "assets/php/General Functions.php";
-require "assets/php/Database Functions.php";
 require_once "assets/php/Page Functions.php";
 
 // If we're already logged in then there's no point seeing the login page so redirect back to the homepage
 if(LoggedIn())
-{
-    header("Location: index.php", true);
-    die();
-}
+    header("Location: index.php");
 
 SetCurrentPage("Login");
 ?>
