@@ -24,7 +24,7 @@ $(document).ready(function ()
          *
          * Since the improvement % gets divided by the min value at the end of the formula there needs to be a check
          * in place to prevent NaN if the value happens to be 0, if the min value is 0 then return the improvement % as
-         * 0 otherwise carry out the formula
+         * 100 otherwise carry out the formula
          */
         $improvementPercentage = $min === 0 ? 100 : 100 * ($max-$min) / $min;
 
