@@ -26,7 +26,7 @@ $(document).ready(function ()
          * in place to prevent NaN if the value happens to be 0, if the min value is 0 then return the improvement % as
          * 0 otherwise carry out the formula
          */
-        $improvementPercentage = $min === 0 ? 0 : 100 * ($max-$min) / $min;
+        $improvementPercentage = $min === 0 ? 100 : 100 * ($max-$min) / $min;
 
 
         new Chart($(`#${element_id}`)[0].getContext("2d"),
