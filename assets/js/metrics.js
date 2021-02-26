@@ -8,6 +8,27 @@ $(document).ready(function ()
      */
     function CreatePieChart(element_id, labels, data)
     {
+        // Get the min and max values of the data
+        $max = Math.max.apply(Math, data);
+        $min = Math.min.apply(Math, data);
+
+        // Determine the best performer of the AB test (control vs variation)
+        $maxValueIndex = data.reduce((bestIndex,
+                                      testValue,
+                                      testIndex, array) => testValue > array[bestIndex] ? testIndex : bestIndex, 0);
+
+        $bestPerformer = labels[$maxValueIndex]
+
+        /*
+         * Calculate the improvement % of the best performing metric
+         *
+         * Since the improvement % gets divided by the min value at the end of the formula there needs to be a check
+         * in place to prevent NaN if the value happens to be 0, if the min value is 0 then return the improvement % as
+         * 0 otherwise carry out the formula
+         */
+        $improvementPercentage = $min === 0 ? 0 : 100 * ($max-$min) / $min;
+
+
         new Chart($(`#${element_id}`)[0].getContext("2d"),
         {
             // The type of chart we want to create
@@ -29,6 +50,10 @@ $(document).ready(function ()
                 legend: {
                     display: true,
                     position: "left"
+                },
+                title: {
+                    display: true,
+                    text: `${$bestPerformer} has performed better by ${$improvementPercentage}%`
                 }
             }
         });

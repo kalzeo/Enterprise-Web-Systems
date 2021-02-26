@@ -53,7 +53,7 @@ SetCurrentPage("A/B Metric Dashboard");
             </div>
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-body tab-content movieCard">
+                    <div class="card-body tab-content">
                         <div class='tab-pane active' id='lightvsdark-pill' role='tabpanel' aria-labelledby='lightvsdark-tab'>
                             <h6 class='font-weight-bold dark-grey-text pt-3 movie_category_title'>Light Mode vs Dark Mode</h6>
                             <p class='small lead font-weight-bold dark-grey-text'>A/B test to determine whether or not users prefer a light or dark version of the website.</p>
