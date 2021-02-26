@@ -22,11 +22,13 @@ $(document).ready(function ()
         /*
          * Calculate the improvement % of the best performing metric
          *
-         * Since the improvement % gets divided by the min value at the end of the formula there needs to be a check
-         * in place to prevent NaN if the value happens to be 0, if the min value is 0 then return the improvement % as
-         * 0 otherwise carry out the formula
+         * If the min and max values are both 0 then theres no change so return 0% as the improvement %
+         *
+         * Assuming the max value is >0, the improvement % gets divided by the min value at the end of the formula
+         * so there needs to be a check in place to prevent NaN if the min value happens to be 0, if the min value is 0
+         * then return the improvement % as 100 otherwise carry out the formula
          */
-        $improvementPercentage = $min === 0 ? 100 : 100 * ($max-$min) / $min;
+        $improvementPercentage = $min === 0 && $max === 0 ? 0 : $min === 0 ? 100 : Math.round(100 * ($max-$min) / $min);
 
 
         new Chart($(`#${element_id}`)[0].getContext("2d"),
