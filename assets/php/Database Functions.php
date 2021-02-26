@@ -50,6 +50,16 @@ function InsertUser($username, $password)
 }
 
 /**
+ * Update the metrics table to increment the value of a A/B test metric by 1.
+ * @param $type - The metric type to be incremented.
+ */
+function UpdateMetric($type)
+{
+    $sql = "UPDATE heroku_7e12094ae71a8cd.metrics SET metric_value = metric_value + 1 WHERE metric_type = '{$type}'";
+    QueryTable($sql);
+}
+
+/**
  * Takes a row outputted by mysqli_fetch_object and sanitizes each item with
  * htmlspecialchars to convert special characters to HTML entities to prevent XSS.
  * If any item in the row is blank or empty it will be set to Unspecified.

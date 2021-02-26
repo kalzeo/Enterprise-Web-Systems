@@ -49,7 +49,7 @@ SetCurrentPage("Login");
                                     <!-- Password -->
                                     <input type="password" id="password" class="form-control" placeholder="Password">
                                     <small id="passwordHelpBlock" class="form-text text-right blue-text">
-                                        <a href="">Not got an account? Sign up here!</a>
+                                        <a href="signup.php">Not got an account? Sign up here!</a>
                                     </small>
                                     <div class="text-center">
                                         <button type="button" id="loginSubmitButton" class="btn btn-outline-orange my-4 waves-effect">Login</button>
