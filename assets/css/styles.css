@@ -89,26 +89,8 @@ End NavBar
 *******************/
 
 /*******************
-Start Breadcrumb and Page Title
+Start Breadcrumb
 *******************/
-.page-breadcrumb
-{
-    padding: 20px 20px 20px 5px;
-}
-
-.page-breadcrumb .breadcrumb
-{
-    background-color: transparent;
-    font-size: 12px;
-}
-
-.page-breadcrumb .breadcrumb .breadcrumb-item + .breadcrumb-item::before
-{
-    content: "/";
-    color: #ced4da;
-    font-size: 11px;
-}
-
 .breadcrumb
 {
     display: -webkit-box;
@@ -116,68 +98,23 @@ Start Breadcrumb and Page Title
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    padding: 0.75rem 1rem;
-    margin-bottom: 1.5rem;
+    padding: 10px;
     list-style: none;
     background-color: #eef5f9;
     border-radius: 2px;
-}
-
-.breadcrumb-item + .breadcrumb-item
-{
-    padding-left: 0.5rem;
-}
-
-.breadcrumb-item + .breadcrumb-item::before
-{
-    display: inline-block;
-    padding-right: 0.5rem;
-    color: #6c757d;
-    content: "/";
-}
-
-.breadcrumb-item + .breadcrumb-item:hover::before
-{
-    text-decoration: underline;
-}
-
-.breadcrumb-item + .breadcrumb-item:hover::before
-{
-    text-decoration: none;
-}
-
-.breadcrumb-item.active
-{
-    color: #6c757d;
-}
-
-.breadcrumb>li+li:before
-{
-    content: "" !important;
-}
-
-.breadcrumb
-{
-    padding: 10px;
     font-size: 14px;
     color: #aaa !important;
     letter-spacing: 2px;
     width: 100% !important;
-    margin: auto;
+    margin: unset;
 }
 
 .first-1
 {
     background-color: white !important;
 }
-
-.breadcrumb .active
-{
-    font-size: 13px !important;
-    color: #565656 !important;
-}
 /*******************
-End Breadcrumb and Page Title
+End Breadcrumb
 *******************/
 
 

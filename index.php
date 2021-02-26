@@ -20,10 +20,12 @@ $obj = json_decode($json);
 
 <body>
     <?php include "include/navbar.php"; ?>
-    <nav aria-label="breadcrumb" class="first d-md-flex">
-        <ol class="breadcrumb first-1 shadow-lg">
-            <?php include "include/dark_mode.php"; ?>
-        </ol>
+    <nav aria-label="page-breadcrumb" class="first d-md-flex">
+        <div class="breadcrumb indigo lighten-6 first-1 shadow-lg d-flex justify-content-end">
+            <li class="breadcrumb-item font-weight-bold">
+                <?php include "include/dark_mode.php"; ?>
+            </li>
+        </div>
     </nav>
 
     <div class="container my-5">

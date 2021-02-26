@@ -1,7 +1,7 @@
 // Wait until the DOM is ready before executing any JS
 $(document).ready(function()
 {
-    // Attempt to login in the user when the submit button is pressed on the login page
+    // Attempt to log the user in when they press the login button
     $("#loginSubmitButton").click(function()
     {
         $.ajax({
@@ -13,6 +13,7 @@ $(document).ready(function()
             },
             success: function(result)
             {
+                // Redirect if successful otherwise display an error
                 if(result === "Success")
                     window.location.href = "index.php";
                 else

@@ -20,15 +20,18 @@ SetCurrentPage("Sign up");
 
 <body>
     <?php include_once "include/navbar.php"; ?>
-    <nav aria-label="breadcrumb " class="first d-md-flex">
-        <ol class="breadcrumb indigo lighten-6 first-1 shadow-lg">
-            <li class="breadcrumb-item font-weight-bold">
-                <a class="black-text text-uppercase " href="index.php"><span>home</span></a>
-                <i class="fas fa-angle-right mt-1 ml-3 breadcrumb-arrow"></i>
-            </li>
-            <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="signup.php"><span>sign up</span></a></li>
-            <?php include "include/dark_mode.php"; ?>
-        </ol>
+    <nav class="first d-md-flex">
+        <div class="row breadcrumb indigo lighten-6 first-1 shadow-lg">
+            <div class="col-md-8 d-flex justify-content-start">
+                <li class="breadcrumb-item font-weight-bold">
+                    <a class="black-text text-uppercase " href="index.php">home</a>
+                </li>
+                <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="signup.php">sign up</a></li>
+            </div>
+            <div class="col-md-4 d-flex justify-content-end font-weight-bold">
+                <?php include "include/dark_mode.php"; ?>
+            </div>
+        </div>
     </nav>
 
     <div class="container my-5 px-0">

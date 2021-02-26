@@ -25,7 +25,6 @@ $user = GetUser();
             <?php endif; ?>
         </ul>
         <ul class="navbar-nav ml-auto navbar-right-top">
-
             <?php if (LoggedIn()): ?>
             <!-- Dropdown menu for profile, settings, etc for logged in users -->
             <li class="nav-item dropdown nav-user">
@@ -40,9 +39,9 @@ $user = GetUser();
 
             <?php else: ?>
             <!-- Login button -->
-            <a href="login.php"><button type="button" id="loginButton" class="btn btn-dark btn-sm">
-                <i class="fas fa-key text-white"></i>
-            </button></a>
+            <a class="nav-link" href="login.php" id="navbarDropdown">
+                <i class="fas fa-lg fa-key"></i>
+            </a>
             <?php endif; ?>
         </ul>
     </div>
