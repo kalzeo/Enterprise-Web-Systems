@@ -42,8 +42,8 @@ $(document).ready(function ()
         success: function(data)
         {
             // Quick and dirty
-            new CreatePieChart("lightvsdark_graph", [data[0].metric, data[1].metric], [data[0][0].value, data[1][0].value])
-            new CreatePieChart("homepage_header_graph", [data[2].metric, data[3].metric], [data[2][0].value, data[3][0].value])
+            new CreatePieChart("lightvsdark_graph", [`${data[0].metric} (control)`, `${data[1].metric} (variation)`], [data[0][0].value, data[1][0].value])
+            new CreatePieChart("homepage_header_graph", [`${data[2].metric} (control)`, `${data[3].metric} (variation)`], [data[2][0].value, data[3][0].value])
         }
     });
 });
