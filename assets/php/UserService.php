@@ -23,12 +23,7 @@ class UserService
         {
             session_start();
             $user = new User($this->_GetUsername());
-
-            if($user->GetPermission() == "Admin")
-                $_SESSION["user"] = serialize(new Admin($this->_GetUsername()));
-            else
-                $_SESSION["user"] = serialize($user);
-
+            $_SESSION["user"] = serialize($user);
             echo "Success";
         }
         else

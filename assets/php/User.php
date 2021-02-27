@@ -7,7 +7,6 @@ class User
     private $_id;
     private $_username;
     private $_permission;
-    private $_preservedUsername;
 
     public function __construct($username)
     {
@@ -25,32 +24,14 @@ class User
                 $row = SanitizeRowObject($row);
                 $this->_id = $row->id;
                 $this->_username = $row->username;
-                $this->_preservedUsername = $row->username;
                 $this->_permission = $row->permission;
             }
         }
     }
 
-    public function SetUsername($username)
-    {
-        $this->_username = $username;
-    }
-
-
-    public function SetPermission($permission)
-    {
-        $this->_permission = $permission;
-    }
-
-
     public function GetUsername()
     {
         return $this->_username;
-    }
-
-    public function GetPreservedUsername()
-    {
-        return $this->_preservedUsername;
     }
 
     public function GetPermission()
@@ -61,13 +42,5 @@ class User
     public function GetID()
     {
         return $this->_id;
-    }
-}
-
-class Admin extends User
-{
-    public function __construct($username)
-    {
-        parent::__construct($username);
     }
 }
