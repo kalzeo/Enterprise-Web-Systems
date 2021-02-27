@@ -2,8 +2,7 @@
 session_start();
 
 require_once "include/header.php";
-require "assets/php/Database Functions.php";
-require_once "assets/php/General Functions.php";
+
 require_once "assets/php/Page Functions.php";
 require_once "assets/php/Movie.php";
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once "Database Functions.php";
+require "Database Functions.php";
 
 class User
 {
