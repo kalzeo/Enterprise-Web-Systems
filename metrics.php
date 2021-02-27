@@ -56,14 +56,14 @@ SetCurrentPage("A/B Metric Dashboard");
                     <div class="card-body tab-content">
                         <div class='tab-pane active' id='lightvsdark-pill' role='tabpanel' aria-labelledby='lightvsdark-tab'>
                             <h6 class='font-weight-bold dark-grey-text pt-3 movie_category_title'>Light Mode vs Dark Mode</h6>
-                            <p class='small lead font-weight-bold dark-grey-text'>A/B test to determine whether or not users prefer a light or dark version of the website.</p>
+                            <p class='small lead font-weight-bold dark-grey-text'>A/B test to determine whether or not users prefer a light or dark theme on the website.</p>
                             <hr class='dark-grey-text'>
                             <canvas id='lightvsdark_graph'></canvas>
                             <p id="overview"></p>
                         </div>
                         <div class='tab-pane' id='homepageheader-pill' role='tabpanel' aria-labelledby='homepageheader-tab'>
                             <h6 class='font-weight-bold dark-grey-text pt-3 movie_category_title'>Header 1 vs Header 2</h6>
-                            <p class='small lead font-weight-bold dark-grey-text'>A/B test to determine what homepage header deal gets more people to press the sign up button based on the deal and colour scheme.</p>
+                            <p class='small lead font-weight-bold dark-grey-text'>A/B test to determine what homepage header offer gets more people to press the sign up button based on the deal (% or £).<br>For reference, Homepage header 1 has the % offer, Homepage header 2 has the £ offer.</p>
                             <hr class='dark-grey-text'>
                             <canvas id='homepage_header_graph'></canvas>
                             <p id="overview"></p>
