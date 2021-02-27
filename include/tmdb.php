@@ -59,7 +59,7 @@ function GetMovies($genresObject)
                                     <h6 class='font-weight-bold dark-grey-text pt-3 movie_category_title'>{$genreName}</h6>
                                     <hr class='dark-grey-text'>";
 
-        // Loop through the first 10 returned movies and create a box for each one the card
+        // Loop through the first 10 returned movies and create a box for each one on the card
         foreach ($moviesJSON->results as $index2 => &$movie)
         {
             if($index2 == 10) break;
