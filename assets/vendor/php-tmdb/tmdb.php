@@ -1,31 +1,32 @@
 <?php
+use Tmdb\Repository\GenreRepository;
+
 /**
  * Creates an API call to fetch the available movie genres that are listed by TMDB.
  *
  * The returned genres are then used to dynamically create a sidebar on the homepage that the user can use to view
  * movies belonging to each genre.
  *
+ * @param $client - The API client.
  * @return mixed - JSON object holding information about each of the genres such as the name, id, etc.
  */
-function GetGenres()
+function BuildGenreSidebar($client)
 {
-    // Create the API call to get the available movie genres
-    $genreAPI = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=" . getenv("TMDB_API") . "&language=en-US");
-    $genreJSON = json_decode($genreAPI);
+    $repository = new GenreRepository($client);
+    $genres = $repository->loadMovieCollection();
 
-    // Loop through each genre and add it to the genre sidebar on the homepage
-    foreach ($genreJSON->genres as $index => &$genre)
+    foreach ($genres as $index => &$genre)
     {
         // Give the first element the active class
         $idx = $index == 0 ? 'active' : '';
         $selected = $index == 0 ? 'true' : 'false';
 
-        $genreID = $genre->id;
-        $genreName = $genre->name;
+        $genreID = $genre->GetID();
+        $genreName = $genre->GetName();
         echo "<a class='nav-link {$idx}' id='{$genreID}-tab' data-toggle='pill' href='#{$genreName}-pill' role='tab' aria-controls='{$genreName}-pill' aria-selected='{$selected}'>{$genreName}</a>";
     }
 
-    return $genreJSON;
+    return $genres;
 }
 
 /**
@@ -37,22 +38,23 @@ function GetGenres()
  * The 10 movies have invididual boxes on a card so that each movie can be clearly seen. When clicking through the movie
  * genre sidebar on the homepage, movies belonging to the corresponding genre are shown accordingly.
  *
- * @param $genresObject - JSON object holding information about each of the genres from the GetGenres() function. The genre ID of each genre is needed for the API call.
+ * @param $genres
+ * @param $client
  */
-function GetMovies($genresObject)
+function GetGenreMovies($genres, $client)
 {
     // Loop through each genre and get movies belonging to the category
-    foreach ($genresObject->genres as $index => &$genre)
+    foreach ($genres as $index => &$genre)
     {
         // Give the first element the active class
         $idx = $index == 0 ? 'active' : '';
 
-        $genreID = $genre->id;
-        $genreName = $genre->name;
+        $genreID = $genre->GetID();
+        $genreName = $genre->GetName();
 
         // Create the API call to get the movies
-        $movieAPI = file_get_contents("https://api.themoviedb.org/3/discover/movie?api_key=" . getenv("TMDB_API") . "&with_genres={$genreID}");
-        $moviesJSON = json_decode($movieAPI);
+        $repository = new GenreRepository($client);
+        $movies = $repository->getMovies($genreID);
 
         // Start building the movie card
         $movieBox = "<div class='tab-pane {$idx}' id='{$genreName}-pill' role='tabpanel' aria-labelledby='{$genreName}-tab'>
@@ -60,15 +62,20 @@ function GetMovies($genresObject)
                                     <hr class='dark-grey-text'>";
 
         // Loop through the first 10 returned movies and create a box for each one on the card
-        foreach ($moviesJSON->results as $index2 => &$movie)
+        foreach ($movies as $index2 => &$movie)
         {
             if ($index2 == 10) break;
 
-            $movieBox = $movieBox . "<a href='movie_profile.php?movie_id={$movie->id}'><div class='card hoverable mt-3'>
-                                          <img src='https://image.tmdb.org/t/p/w500{$movie->poster_path}' class='card-img-top' alt='{$movie->title} Movie Poster'/>
+            $title = $movie->GetTitle();
+            $movieID = $movie->GetID();
+            $overview = $movie->GetOverview();
+            $poster = $movie->GetPosterPath();
+
+            $movieBox = $movieBox . "<a href='movie_profile.php?movie_id={$movieID}'><div class='card hoverable mt-3'>
+                                          <img src='https://image.tmdb.org/t/p/w500{$poster}' class='card-img-top' alt='{$title} Movie Poster'/>
                                           <div class='card-body'>
-                                            <h5 class='card-title'>{$movie->title}</h5>
-                                            <p class='card-text movie-description mb-2'>{$movie->overview}</p>
+                                            <h5 class='card-title'>{$title}</h5>
+                                            <p class='card-text movie-description mb-2'>{$overview}</p>
                                           </div>
                                         </div></a>
                                        ";

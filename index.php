@@ -1,11 +1,15 @@
 <?php
 session_start();
 
+use Tmdb\Client;
+
+
 require_once "include/header.php";
 require_once "assets/php/Page Functions.php";
-require_once "include/tmdb.php";
-
+require_once "assets/vendor/php-tmdb/tmdb.php";
+require_once('vendor/autoload.php');
 SetCurrentPage("Home");
+$client = require('assets/vendor/php-tmdb/setup-client.php');
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +38,7 @@ SetCurrentPage("Home");
             <div class="card">
                 <div class="card-body">
                     <nav class="nav flex-column nav-pills nav-gap-y-1">
-                        <?php $genresJSON = GetGenres(); ?>
+                        <?php $genres = BuildGenreSidebar($client); ?>
                     </nav>
                 </div>
             </div>
@@ -44,7 +48,7 @@ SetCurrentPage("Home");
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body tab-content movieCard">
-                    <?php GetMovies($genresJSON); ?>
+                    <?php GetGenreMovies($genres, $client); ?>
                 </div>
             </div>
         </div>

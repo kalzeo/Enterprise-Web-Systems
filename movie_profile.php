@@ -1,17 +1,22 @@
 <?php
+
+use Tmdb\Repository\MovieRepository;
+
 session_start();
 
 require_once "include/header.php";
-
 require_once "assets/php/Page Functions.php";
-require_once "assets/php/Movie.php";
-
-
-$user = unserialize($_SESSION["user"]);
+require_once "assets/vendor/php-tmdb/tmdb.php";
+require_once('vendor/autoload.php');
 
 if (!isset($_GET["movie_id"])) header("Location: index.php");
 
-$movie = new Movie($_GET["movie_id"]);
+$user = unserialize($_SESSION["user"]);
+$client = require('assets/vendor/php-tmdb/setup-client.php');
+
+$movieRepository = new MovieRepository($client);
+$movie = $movieRepository->load($_GET["movie_id"]);
+
 SetCurrentPage($movie->GetTitle());
 ?>
 
@@ -49,7 +54,7 @@ SetCurrentPage($movie->GetTitle());
                     <p class="small mb-0"><?php echo $movie->GetTagline(); ?></p>
                 </div>
             </div>
-            <img src="<?php echo $movie->GetPoster(); ?>" class='img-fluid' alt="Movie Poster"/>
+            <img src="https://image.tmdb.org/t/p/w500<?php echo $movie->GetPosterPath(); ?>" class='img-fluid' alt="Movie Poster"/>
             <button class="list-group-item d-flex justify-content-center align-items-center py-3 btn-outline-mdb-color text-uppercase"
                     id="buy_movie"><i class="far fa-credit-card mr-1"></i> Buy
             </button>

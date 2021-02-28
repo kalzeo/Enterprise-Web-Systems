@@ -35,7 +35,14 @@ SetCurrentPage("Sign up");
     </div>
 </nav>
 
+
+
 <div class="container my-5 px-0">
+    <?php
+
+
+
+    ?>
     <!--Section: Content-->
     <section class="p-5 my-md-5 text-center">
         <form class="my-5 mx-md-5">
