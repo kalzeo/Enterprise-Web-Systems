@@ -10,13 +10,13 @@
 function GetGenres()
 {
     // Create the API call to get the available movie genres
-    $genreAPI = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=".getenv("TMDB_API")."&language=en-US");
+    $genreAPI = file_get_contents("https://api.themoviedb.org/3/genre/movie/list?api_key=" . getenv("TMDB_API") . "&language=en-US");
     $genreJSON = json_decode($genreAPI);
 
     // Loop through each genre and add it to the genre sidebar on the homepage
-    foreach($genreJSON->genres as $index=>&$genre)
+    foreach ($genreJSON->genres as $index => &$genre)
     {
-        # Give the first element the active class
+        // Give the first element the active class
         $idx = $index == 0 ? 'active' : '';
         $selected = $index == 0 ? 'true' : 'false';
 
@@ -42,16 +42,16 @@ function GetGenres()
 function GetMovies($genresObject)
 {
     // Loop through each genre and get movies belonging to the category
-    foreach($genresObject->genres as $index=>&$genre)
+    foreach ($genresObject->genres as $index => &$genre)
     {
-        # Give the first element the active class
+        // Give the first element the active class
         $idx = $index == 0 ? 'active' : '';
 
         $genreID = $genre->id;
         $genreName = $genre->name;
 
         // Create the API call to get the movies
-        $movieAPI = file_get_contents("https://api.themoviedb.org/3/discover/movie?api_key=".getenv("TMDB_API")."&with_genres={$genreID}");
+        $movieAPI = file_get_contents("https://api.themoviedb.org/3/discover/movie?api_key=" . getenv("TMDB_API") . "&with_genres={$genreID}");
         $moviesJSON = json_decode($movieAPI);
 
         // Start building the movie card
@@ -62,7 +62,7 @@ function GetMovies($genresObject)
         // Loop through the first 10 returned movies and create a box for each one on the card
         foreach ($moviesJSON->results as $index2 => &$movie)
         {
-            if($index2 == 10) break;
+            if ($index2 == 10) break;
 
             $movieBox = $movieBox . "<a href='movie_profile.php?movie_id={$movie->id}'><div class='card hoverable mt-3'>
                                           <img src='https://image.tmdb.org/t/p/w500{$movie->poster_path}' class='card-img-top' alt='{$movie->title} Movie Poster'/>
@@ -77,4 +77,5 @@ function GetMovies($genresObject)
         echo $movieBox;
     }
 }
+
 ?>

@@ -1,8 +1,8 @@
 // Wait until the DOM is ready before executing any JS
-$(document).ready(function()
+$(document).ready(function ()
 {
     // Execute if any of the homepage header buttons are pressed to go to the sign up page
-    $(".btn[id^='homepage_header_']").click(function()
+    $(".btn[id^='homepage_header_']").click(function ()
     {
         // Determine the metric type and increment it with the AJAX call
         $headerType = `Homepage Header ${this.id[this.id.length - 1]}`;

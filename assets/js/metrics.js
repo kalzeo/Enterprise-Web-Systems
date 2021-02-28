@@ -28,7 +28,7 @@ $(document).ready(function ()
          * so there needs to be a check in place to prevent NaN if the min value happens to be 0, if the min value is 0
          * then return the improvement % as 100 otherwise carry out the formula
          */
-        $improvementPercentage = $min === 0 && $max === 0 ? 0 : $min === 0 ? 100 : Math.round(100 * ($max-$min) / $min);
+        $improvementPercentage = $min === 0 && $max === 0 ? 0 : $min === 0 ? 100 : Math.round(100 * ($max - $min) / $min);
 
 
         new Chart($(`#${element_id}`)[0].getContext("2d"),
@@ -40,8 +40,8 @@ $(document).ready(function ()
             data: {
                 labels: labels,
                 datasets: [{
-                    backgroundColor: ['rgb(255, 99, 132)','rgb(122, 99, 132)'],
-                    borderColor: ['rgb(255, 99, 132)','rgb(122, 99, 132)'],
+                    backgroundColor: ['rgb(255, 99, 132)', 'rgb(122, 99, 132)'],
+                    borderColor: ['rgb(255, 99, 132)', 'rgb(122, 99, 132)'],
                     data: data
                 }]
             },
@@ -65,8 +65,8 @@ $(document).ready(function ()
     $.ajax({
         url: 'assets/php/get_metrics.php',
         type: 'GET',
-        dataType:"json",
-        success: function(data)
+        dataType: "json",
+        success: function (data)
         {
             // Quick and dirty
             new CreatePieChart("lightvsdark_graph", [`${data[0].metric} (control)`, `${data[1].metric} (variation)`], [data[0][0].value, data[1][0].value])

@@ -9,7 +9,7 @@ require_once "assets/php/Movie.php";
 
 $user = unserialize($_SESSION["user"]);
 
-if(!isset($_GET["movie_id"])) header("Location: index.php");
+if (!isset($_GET["movie_id"])) header("Location: index.php");
 
 $movie = new Movie($_GET["movie_id"]);
 SetCurrentPage($movie->GetTitle());
@@ -30,7 +30,9 @@ SetCurrentPage($movie->GetTitle());
             <li class="breadcrumb-item font-weight-bold">
                 <a class="black-text text-uppercase" href="index.php">home</a>
             </li>
-            <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="movie_profile.php?movie_id=<?php echo $movie->GetID(); ?>"><?php echo $movie->GetTitle(); ?></a></li>
+            <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase"
+                                                            href="movie_profile.php?movie_id=<?php echo $movie->GetID(); ?>"><?php echo $movie->GetTitle(); ?></a>
+            </li>
         </div>
         <div class="col-md-4 d-flex justify-content-end font-weight-bold">
             <?php include "include/dark_mode.php"; ?>
@@ -47,8 +49,10 @@ SetCurrentPage($movie->GetTitle());
                     <p class="small mb-0"><?php echo $movie->GetTagline(); ?></p>
                 </div>
             </div>
-            <img src="<?php echo $movie->GetPoster(); ?>" class='img-fluid' alt="Movie Poster" />
-            <button class="list-group-item d-flex justify-content-center align-items-center py-3 btn-outline-mdb-color text-uppercase" id="buy_movie"><i class="far fa-credit-card mr-1"></i> Buy</button>
+            <img src="<?php echo $movie->GetPoster(); ?>" class='img-fluid' alt="Movie Poster"/>
+            <button class="list-group-item d-flex justify-content-center align-items-center py-3 btn-outline-mdb-color text-uppercase"
+                    id="buy_movie"><i class="far fa-credit-card mr-1"></i> Buy
+            </button>
         </div>
         <div class="col-md-8">
             <div class="card">
@@ -73,13 +77,10 @@ SetCurrentPage($movie->GetTitle());
                                         <p class="grey-text"><?php echo $movie->GetOverview(); ?></p>
                                     </div>
                                     <!-- Grid column -->
-
                                 </div>
                                 <!-- Grid row -->
-
                                 <!-- Grid row -->
                                 <div class="row mb-3">
-
                                     <!-- Grid column -->
                                     <div class="col-1">
                                         <i class="far fa-clock fa-lg indigo-text"></i>
@@ -109,16 +110,12 @@ SetCurrentPage($movie->GetTitle());
                                         <p class="grey-text mb-0"><?php echo "{$movie->GetVoteAverage()} / 10"; ?></p>
                                     </div>
                                     <!-- Grid column -->
-
                                 </div>
                                 <!--Grid row-->
-
                             </div>
                             <!--Grid column-->
-
                         </div>
                         <!-- Grid row -->
-
                     </section>
                     <!--Section: Content-->
                 </div>

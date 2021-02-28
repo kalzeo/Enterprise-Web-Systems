@@ -6,13 +6,12 @@ require_once "assets/php/Page Functions.php";
 require_once "assets/php/General Functions.php";
 require_once "assets/php/User.php";
 
-if(!LoggedIn()) header("Location: index.php");
+if (!LoggedIn()) header("Location: index.php");
 
 $ownAccount = True;
 
 $user = GetUser();
-if(isset($_GET["username"]) and $_GET["username"] != $user->GetUsername())
-{
+if (isset($_GET["username"]) and $_GET["username"] != $user->GetUsername()) {
     $user = new User($_GET["username"]);
     $ownAccount = False;
 }
@@ -39,7 +38,9 @@ SetCurrentPage($username);
             <li class="breadcrumb-item font-weight-bold">
                 <a class="black-text text-uppercase" href="profile.php">profile</a>
             </li>
-            <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="profile.php?username=<?php echo $username; ?>"><?php echo $username; ?></a></li>
+            <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase"
+                                                            href="profile.php?username=<?php echo $username; ?>"><?php echo $username; ?></a>
+            </li>
         </div>
         <div class="col-md-4 d-flex justify-content-end font-weight-bold">
             <?php include "include/dark_mode.php"; ?>
@@ -52,14 +53,15 @@ SetCurrentPage($username);
     <!--Section: Name Header -->
     <section class="px-md-5 mx-md-5 py-5 text-center white-text elegant-color z-depth-1 rounded">
         <h3 class=""><?php echo "{$username}"; ?></h3>
-        <?php if($ownAccount): ?>
-        <button class="btn btn-red btn-md" data-toggle="modal" data-target="#exampleCentralModal1">Delete Account</button>
+        <?php if ($ownAccount): ?>
+            <button class="btn btn-red btn-md" data-toggle="modal" data-target="#exampleCentralModal1">Delete Account
+            </button>
         <?php endif; ?>
     </section>
     <!--Section: Name Header -->
 </div>
 
-<div class="modal fade" id="exampleCentralModal1" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" data-gtm-vis-first-on-screen-2340190_1302="8746" data-gtm-vis-total-visible-time-2340190_1302="100" data-gtm-vis-has-fired-2340190_1302="1" aria-hidden="true">
+<div class="modal fade" id="exampleCentralModal1" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content text-center">
             <div class="modal-header bg-danger text-white d-flex justify-content-center">

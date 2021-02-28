@@ -1,15 +1,15 @@
 <?php
-$random = rand(1,10);
+$random = rand(1, 10);
 $offerDetails = [];
 
 // Switch the random value, values <=5 show the first header, anything >5 shows the second header
-switch($random)
+switch ($random)
 {
-    case $random<=5:
-        array_push($offerDetails, ["id"=>"homepage_header_1", "offer"=>"10%", "header_style"=>"indigo lighten-2", "button_style"=>"btn-outline-white"]);
+    case $random <= 5:
+        array_push($offerDetails, ["id" => "homepage_header_1", "offer" => "10%", "header_style" => "indigo lighten-2", "button_style" => "btn-outline-white"]);
         break;
-    case $random>5:
-        array_push($offerDetails, ["id"=>"homepage_header_2", "offer"=>"£10", "header_style"=>"grey darken-3", "button_style"=>"btn-red"]);
+    case $random > 5:
+        array_push($offerDetails, ["id" => "homepage_header_2", "offer" => "£10", "header_style" => "grey darken-3", "button_style" => "btn-red"]);
         break;
 }
 

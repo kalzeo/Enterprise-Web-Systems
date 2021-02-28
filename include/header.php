@@ -7,7 +7,7 @@
  */
 function CreateHeader()
 {
-echo '<noscript>Enable JavaScript</noscript>
+    echo '<noscript>Enable JavaScript</noscript>
     <meta charset="UTF-8">
     <title>'.GetCurrentPage().'</title>
     <meta name="author" content="Kyle McPherson">
@@ -47,4 +47,5 @@ echo '<noscript>Enable JavaScript</noscript>
     <link type="text/css" rel="stylesheet" href="assets/css/styles.css" />
     ';
 }
+
 ?>

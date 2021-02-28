@@ -46,12 +46,12 @@ function resetTheme()
 }
 
 // Wait until the DOM is ready to execute the JS
-$(document).ready(function()
+$(document).ready(function ()
 {
     var darkSwitch = $("#darkSwitch");
 
     // Reset the page theme each time the dark mode switch button is toggled on/off.
-    darkSwitch && (initTheme(), darkSwitch.on("change", function()
+    darkSwitch && (initTheme(), darkSwitch.on("change", function ()
     {
         resetTheme();
     }));

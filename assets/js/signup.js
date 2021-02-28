@@ -1,8 +1,8 @@
 // Wait until the DOM is ready before executing any JS
-$(document).ready(function()
+$(document).ready(function ()
 {
     // Attempt to login in the user when the submit button is pressed on the login page
-    $("#loginSubmitButton").click(function()
+    $("#loginSubmitButton").click(function ()
     {
         $.ajax({
             url: 'assets/php/create_account.php',
@@ -11,8 +11,7 @@ $(document).ready(function()
                 'username': $("#username").val(),
                 'password': $("#password").val()
             },
-            success: function(result)
-            {
+            success: function (result) {
                 alert(result);
             }
         });
