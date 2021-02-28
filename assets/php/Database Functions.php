@@ -41,12 +41,30 @@ function SelectFromTable($table, $selections, $where_clause)
     return QueryTable($sql);
 }
 
+/**
+ * Add a user account to the database with a set username and password.
+ * The password will be salted to give it additional security.
+ * @param $username - The account username.
+ * @param $password - The account password.
+ * @return bool|mysqli_result - Return the result of the query, would be useful to let the user know if the account was created or not.
+ */
 function InsertUser($username, $password)
 {
     $username = SanitizeString($username);
     $password = hash("sha256", SanitizeString($password));
     $sql = "INSERT INTO heroku_7e12094ae71a8cd.users (username, password, permission) VALUES ('{$username}', '{$password}', 'User')";
     return QueryTable($sql);
+}
+
+/**
+ * Remove a user account from the database.
+ * @param $id - The ID of the user to be deleted.
+ */
+function DeleteUser($id)
+{
+    $id = SanitizeString($id);
+    $sql = "DELETE FROM heroku_7e12094ae71a8cd.users WHERE id = '{$id}'";
+    QueryTable($sql);
 }
 
 /**

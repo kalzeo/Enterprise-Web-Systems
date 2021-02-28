@@ -17,6 +17,8 @@ if (isset($_GET["username"]) and $_GET["username"] != $user->GetUsername()) {
 }
 
 $username = $user->GetUsername();
+$userID = $user->GetID();
+
 SetCurrentPage($username);
 ?>
 
@@ -52,8 +54,9 @@ SetCurrentPage($username);
 <div class="container my-5">
     <!--Section: Name Header -->
     <section class="px-md-5 mx-md-5 py-5 text-center white-text elegant-color z-depth-1 rounded">
-        <h3 class=""><?php echo "{$username}"; ?></h3>
+        <h3>Profile of <?php echo "{$username}"; ?></h3>
         <?php if ($ownAccount): ?>
+            <script>var userID = <?= $userID ?></script>
             <button class="btn btn-red btn-md" data-toggle="modal" data-target="#exampleCentralModal1">Delete Account
             </button>
         <?php endif; ?>
@@ -61,7 +64,7 @@ SetCurrentPage($username);
     <!--Section: Name Header -->
 </div>
 
-<div class="modal fade" id="exampleCentralModal1" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+<div class="modal fade" id="exampleCentralModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content text-center">
             <div class="modal-header bg-danger text-white d-flex justify-content-center">
@@ -72,7 +75,7 @@ SetCurrentPage($username);
             </div>
             <div class="modal-footer d-flex justify-content-center">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                <button type="button" class="btn btn-outline-danger" id="delete_account_button">Yes</button>
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal" id="delete_account_button">Yes</button>
             </div>
         </div>
     </div>
