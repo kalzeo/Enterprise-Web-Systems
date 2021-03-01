@@ -6,18 +6,28 @@ session_start();
 
 require_once "include/header.php";
 require_once "assets/php/Page Functions.php";
-require_once "assets/vendor/php-tmdb/tmdb.php";
 require_once('vendor/autoload.php');
 
+// If a movie ID isn't set, kick the user back to the index since the API won't return anything
 if (!isset($_GET["movie_id"])) header("Location: index.php");
 
 $user = unserialize($_SESSION["user"]);
-$client = require('assets/vendor/php-tmdb/setup-client.php');
 
+// Setup the TMDB API client using the php-TMDB wrapper
+$client = require("assets/vendor/php-tmdb/setup-client.php");
+
+// Create an API call to the movie and it's information
 $movieRepository = new MovieRepository($client);
 $movie = $movieRepository->load($_GET["movie_id"]);
+$id = $movie->GetID();
+$title = $movie->GetTitle();
+$tagline = $movie->GetTagline();
+$overview = $movie->GetOverview();
+$poster = $movie->GetPosterPath();
+$rating = $movie->GetVoteAverage();
+$runtime = $movie->GetRuntime();
 
-SetCurrentPage($movie->GetTitle());
+SetCurrentPage($title);
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +46,7 @@ SetCurrentPage($movie->GetTitle());
                 <a class="black-text text-uppercase" href="index.php">home</a>
             </li>
             <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase"
-                                                            href="movie_profile.php?movie_id=<?php echo $movie->GetID(); ?>"><?php echo $movie->GetTitle(); ?></a>
+                                                            href="movie_profile.php?movie_id=<?php echo $id; ?>"><?php echo $title; ?></a>
             </li>
         </div>
         <div class="col-md-4 d-flex justify-content-end font-weight-bold">
@@ -50,11 +60,11 @@ SetCurrentPage($movie->GetTitle());
         <div class="col-md-4 d-none d-md-block">
             <div class="list-group-item d-flex justify-content-center align-items-center py-3">
                 <div class="d-flex flex-column pl-3 font-weight-bold text-uppercase">
-                    <p class="mb-0"><?php echo $movie->GetTitle(); ?></p>
-                    <p class="small mb-0"><?php echo $movie->GetTagline(); ?></p>
+                    <p class="mb-0"><?php echo $title; ?></p>
+                    <p class="small mb-0"><?php echo $tagline; ?></p>
                 </div>
             </div>
-            <img src="https://image.tmdb.org/t/p/w500<?php echo $movie->GetPosterPath(); ?>" class='img-fluid' alt="Movie Poster"/>
+            <img src="https://image.tmdb.org/t/p/w500<?php echo $poster; ?>" class='img-fluid' alt="Movie Poster"/>
             <button class="list-group-item d-flex justify-content-center align-items-center py-3 btn-outline-mdb-color text-uppercase"
                     id="buy_movie"><i class="far fa-credit-card mr-1"></i> Buy
             </button>
@@ -79,7 +89,7 @@ SetCurrentPage($movie->GetTitle());
                                     <!-- Grid column -->
                                     <div class="col-xl-10 col-md-11 col-10">
                                         <h5 class="font-weight-bold mb-3 movie-information-header">Overview</h5>
-                                        <p class="grey-text"><?php echo $movie->GetOverview(); ?></p>
+                                        <p class="grey-text"><?php echo $overview; ?></p>
                                     </div>
                                     <!-- Grid column -->
                                 </div>
@@ -95,7 +105,7 @@ SetCurrentPage($movie->GetTitle());
                                     <!-- Grid column -->
                                     <div class="col-xl-10 col-md-11 col-10">
                                         <h5 class="font-weight-bold mb-3 movie-information-header">Runtime</h5>
-                                        <p class="grey-text"><?php echo "{$movie->GetRuntime()} minutes."; ?></p>
+                                        <p class="grey-text"><?php echo "{$runtime} minutes."; ?></p>
                                     </div>
                                     <!-- Grid column -->
                                 </div>
@@ -112,7 +122,7 @@ SetCurrentPage($movie->GetTitle());
                                     <!-- Grid column -->
                                     <div class="col-xl-10 col-md-11 col-10">
                                         <h5 class="font-weight-bold mb-3 movie-information-header">Rating</h5>
-                                        <p class="grey-text mb-0"><?php echo "{$movie->GetVoteAverage()} / 10"; ?></p>
+                                        <p class="grey-text mb-0"><?php echo "{$rating} / 10"; ?></p>
                                     </div>
                                     <!-- Grid column -->
                                 </div>
