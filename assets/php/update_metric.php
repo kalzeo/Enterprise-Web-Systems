@@ -1,8 +1,14 @@
 <?php
 require "Database Functions.php";
-if(isset($_POST["type"]))
+if(isset($_POST["method"], $_POST["metric_type"]))
 {
-    $type = SanitizeString($_POST["type"]);
-    UpdateMetric($type);
+    $metric = SanitizeString($_POST["metric_type"]);
+
+    switch($_POST["method"])
+    {
+        case "update": UpdateMetric($metric); break;
+        case "reset": ResetMetric($metric); break;
+        default: break;
+    }
 }
 ?>

@@ -9,8 +9,8 @@ $(document).ready(function ()
     function CreatePieChart(element_id, labels, data)
     {
         // Get the min and max values of the data
-        $max = Math.max.apply(Math, data);
         $min = Math.min.apply(Math, data);
+        $max = Math.max.apply(Math, data);
 
         // Determine the best performer of the AB test (control vs variation)
         $maxValueIndex = data.reduce((bestIndex,
@@ -69,8 +69,52 @@ $(document).ready(function ()
         success: function (data)
         {
             // Quick and dirty
-            new CreatePieChart("lightvsdark_graph", [`${data[0].metric} (control)`, `${data[1].metric} (variation)`], [data[0][0].value, data[1][0].value])
-            new CreatePieChart("homepage_header_graph", [`${data[2].metric} (control)`, `${data[3].metric} (variation)`], [data[2][0].value, data[3][0].value])
+            new CreatePieChart("lightvsdark_graph",
+                [`${data[0].metric} (control)`, `${data[1].metric} (variation)`],
+                [data[0][0].value, data[1][0].value])
+
+            new CreatePieChart("homepage_header_graph",
+                [`${data[2].metric} (control)`, `${data[3].metric} (variation)`],
+                [data[2][0].value, data[3][0].value])
         }
     });
+
+    // Dynamically add the buttons to reset each of the A/B test metrics by targeting the child elements of the metrics card
+    $("#metric-card .tab-pane").each(function(index)
+    {
+        // ID of the child
+        var id = this.id;
+
+        // The reset buttons for the control and variation. IDs are dynamically created aswell, using the reset-[type]-[child id]
+        var controlButton = `<button type="button" class="btn btn-sm btn-outline-red" id="reset-control-${id}">Reset Control</button>`;
+        var variationButton = `<button type="button" class="btn btn-sm btn-outline-red" id="reset-variation-${id}">Reset Variation</button>`;
+
+        // Appends the buttons to the AB test tab
+        $(`#${id}`).append(controlButton, variationButton);
+    });
+
+    // Reset the metric value for a specific AB test when 1 of the 2 buttons
+    $("#metric-card .tab-pane .btn[id^='reset-']").click(function()
+    {
+        var metricType;
+        switch(this.id)
+        {
+            case "reset-control-lightvsdark-pill": metricType = "Light Mode"; break;
+            case "reset-variation-lightvsdark-pill": metricType = "Dark Mode"; break;
+            case "reset-control-homepageheader-pill": metricType = "Homepage Header 1"; break;
+            case "reset-variation-homepageheader-pill": metricType = "Homepage Header 2"; break;
+            default: break;
+        }
+
+        $.ajax({
+            url: "assets/php/update_metric.php",
+            type: "POST",
+            data:
+                {
+                    "method": "reset",
+                    "metric_type": metricType
+                }
+        });
+    });
+
 });

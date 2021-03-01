@@ -56,7 +56,7 @@ SetCurrentPage("A/B Metric Dashboard");
         </div>
         <div class="col-md-8">
             <div class="card">
-                <div class="card-body tab-content">
+                <div class="card-body tab-content" id="metric-card">
                     <div class='tab-pane active' id='lightvsdark-pill' role='tabpanel'
                          aria-labelledby='lightvsdark-tab'>
                         <h6 class='font-weight-bold dark-grey-text pt-3 movie_category_title'>Light Mode vs Dark
@@ -65,16 +65,26 @@ SetCurrentPage("A/B Metric Dashboard");
                             prefer a light or dark theme on the website.</p>
                         <hr class='dark-grey-text'>
                         <canvas id='lightvsdark_graph'></canvas>
-                        <p id="overview"></p>
+                        <hr class='dark-grey-text'>
                     </div>
+
                     <div class='tab-pane' id='homepageheader-pill' role='tabpanel' aria-labelledby='homepageheader-tab'>
                         <h6 class='font-weight-bold dark-grey-text pt-3 movie_category_title'>Header 1 vs Header 2</h6>
-                        <p class='small lead font-weight-bold dark-grey-text'>A/B test to determine what homepage header
-                            offer gets more people to press the sign up button based on the deal (% or £).<br>For
-                            reference, Homepage header 1 has the % offer, Homepage header 2 has the £ offer.</p>
+                        <p class='small lead font-weight-bold dark-grey-text'>A/B test to determine what homepage header offer gets more people to press the sign up button based on the deal (% or £).</p>
                         <hr class='dark-grey-text'>
                         <canvas id='homepage_header_graph'></canvas>
-                        <p id="overview"></p>
+                        <hr class='dark-grey-text'>
+                        <p class="small lead font-weight-bold dark-grey-text">For reference:<br><u>Homepage header 1</u><br></p>
+                        <section class='text-center white-text d-md-flex justify-content-between p-5 indigo lighten-2 mb-1'>
+                        <h3 class='font-weight-bold mb-md-0 mb-4 mt-2 pt-1'>Sign up to receive 10% off your first order!</h3>
+                        <button type='button' class='btn btn-outline-white waves-effect btn-sm' disabled>Sign up here</button>
+                        </section>
+                        <br></r><p class="small lead font-weight-bold dark-grey-text"><br><u>Homepage header 2</u><br></p>
+                        <section class='text-center white-text d-md-flex justify-content-between p-5 grey darken-3 mb-1'>
+                            <h3 class='font-weight-bold mb-md-0 mb-4 mt-2 pt-1'>Sign up to receive £10 off your first order!</h3>
+                            <button type='button' class='btn btn-red waves-effect btn-sm' disabled>Sign up here</button>
+                        </section>
+                        <hr class='dark-grey-text'>
                     </div>
                 </div>
             </div>

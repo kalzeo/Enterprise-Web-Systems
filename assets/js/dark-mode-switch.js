@@ -20,16 +20,16 @@ function initTheme()
  */
 function resetTheme()
 {
+    var metricType;
     if (darkSwitch.checked)
     {
-
-        $type = "Dark Mode";
+        metricType = "Dark Mode";
         $("body").attr("data-theme", "dark");
         localStorage.setItem("darkSwitch", "dark");
     }
     else
     {
-        $type = "Light Mode";
+        metricType = "Light Mode";
         $("body").removeAttr("data-theme");
         localStorage.removeItem("darkSwitch");
     }
@@ -40,7 +40,8 @@ function resetTheme()
         type: 'POST',
         data:
             {
-                'type': $type
+                "method": "update",
+                "metric_type": metricType
             }
     });
 }

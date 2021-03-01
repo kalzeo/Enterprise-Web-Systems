@@ -78,6 +78,16 @@ function UpdateMetric($type)
 }
 
 /**
+ * Update the metrics table to reset the value of a A/B test metric.
+ * @param $type - The metric type to be incremented.
+ */
+function ResetMetric($type)
+{
+    $sql = "UPDATE heroku_7e12094ae71a8cd.metrics SET metric_value = 0 WHERE metric_type = '{$type}'";
+    QueryTable($sql);
+}
+
+/**
  * Takes a row outputted by mysqli_fetch_object and sanitizes each item with
  * htmlspecialchars to convert special characters to HTML entities to prevent XSS.
  * If any item in the row is blank or empty it will be set to Unspecified.
