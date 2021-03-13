@@ -7,6 +7,8 @@ require_once "assets/php/General Functions.php";
 require_once "assets/php/User.php";
 
 $user = GetUser();
+
+// If the users not logged in or an admin then kick them back to the homepage
 if (!LoggedIn() || $user->GetPermission() != "Admin")
     header("Location: index.php");
 
@@ -74,12 +76,17 @@ SetCurrentPage("A/B Metric Dashboard");
                         <hr class='dark-grey-text'>
                         <canvas id='homepage_header_graph'></canvas>
                         <hr class='dark-grey-text'>
-                        <p class="small lead font-weight-bold dark-grey-text">For reference:<br><u>Homepage header 1</u><br></p>
+
+                        <!--Show the homepage headers for reference-->
+                        <p class="small lead font-weight-bold dark-grey-text">For reference:<br><u>Homepage Header 1 (control)</u><br></p>
+                        <!--Homepage header 1-->
                         <section class='text-center white-text d-md-flex justify-content-between p-5 indigo lighten-2 mb-1'>
-                        <h3 class='font-weight-bold mb-md-0 mb-4 mt-2 pt-1'>Sign up to receive 10% off your first order!</h3>
-                        <button type='button' class='btn btn-outline-white waves-effect btn-sm' disabled>Sign up here</button>
+                            <h3 class='font-weight-bold mb-md-0 mb-4 mt-2 pt-1'>Sign up to receive 10% off your first order!</h3>
+                            <button type='button' class='btn btn-outline-white waves-effect btn-sm' disabled>Sign up here</button>
                         </section>
-                        <br></r><p class="small lead font-weight-bold dark-grey-text"><br><u>Homepage header 2</u><br></p>
+                        <br>
+                        <!--Homepage header 2-->
+                        <p class="small lead font-weight-bold dark-grey-text"><br><u>Homepage Header 2 (variation)</u><br></p>
                         <section class='text-center white-text d-md-flex justify-content-between p-5 grey darken-3 mb-1'>
                             <h3 class='font-weight-bold mb-md-0 mb-4 mt-2 pt-1'>Sign up to receive £10 off your first order!</h3>
                             <button type='button' class='btn btn-red waves-effect btn-sm' disabled>Sign up here</button>
