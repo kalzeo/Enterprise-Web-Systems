@@ -95,7 +95,7 @@ $(document).ready(function ()
                 title: {
                     display: true,
                     //text: `${bestPerformer} Received ${improvementPercentage}% More Clicks`
-                    text: [`Best Performer of AB Test: ${bestPerformer}`, `${bestPerformer} Has Performed Better By: ${improvementPercentage}%`, ""]
+                    text: [`Best AB Test Performer: ${bestPerformer}`, `${bestPerformer} Has Performed Better By: ${improvementPercentage}%`, ""]
                 }
             }
         });
@@ -172,7 +172,7 @@ $(document).ready(function ()
     });
 
     // Dynamically add the buttons to reset each of the A/B test metrics by targeting the child elements of the metrics card
-    $("#metric-card .tab-pane").each(function(index)
+    $("#metric-card .tab-pane").each(function()
     {
         // The reset buttons for the control and variation. IDs are dynamically created.
         let id = this.id;

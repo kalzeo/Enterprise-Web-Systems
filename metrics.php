@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-require_once "include/header.php";
 require_once "assets/php/Page Functions.php";
 require_once "assets/php/General Functions.php";
 require_once "assets/php/User.php";
@@ -19,7 +18,7 @@ SetCurrentPage("A/B Metric Dashboard");
 <html lang="en">
 
 <head>
-    <?php CreateHeader(); ?>
+    <?php include_once "include/header.php"; ?>
 </head>
 
 <body>
@@ -76,7 +75,7 @@ SetCurrentPage("A/B Metric Dashboard");
                         <h6 class='font-weight-bold dark-grey-text pt-3 movie_category_title'>Offer 1 vs Offer 2</h6>
                         <p class='small lead font-weight-bold dark-grey-text'>A/B test to determine what homepage offer gets more people to press the sign up button based on the deal (% or £) and subsequently sign up.</p>
                         <hr class='dark-grey-text'>
-                        <!--Show the homepage headers for reference-->
+                        <!--Start: References-->
                         <p class="small lead font-weight-bold dark-grey-text">For reference:<br><u>Offer 1 (control)</u><br></p>
 
                         <!--Offer 1-->
@@ -94,11 +93,14 @@ SetCurrentPage("A/B Metric Dashboard");
                         </section>
 
                         <hr class='dark-grey-text'>
-                        <!-- End reference -->
+                        <!--End: References-->
 
+                        <!--Start: Graphs-->
                         <canvas id='offer_header_graph'></canvas>
                         <hr class='dark-grey-text'>
                         <canvas id='offer_signup_graph'></canvas>
+                        <hr class='dark-grey-text'>
+                        <!--End: Graphs-->
                     </div>
                 </div>
             </div>

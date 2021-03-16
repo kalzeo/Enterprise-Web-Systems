@@ -4,7 +4,6 @@ use Tmdb\Repository\MovieRepository;
 
 session_start();
 
-require_once "include/header.php";
 require_once "assets/php/Page Functions.php";
 require_once('vendor/autoload.php');
 
@@ -34,7 +33,7 @@ SetCurrentPage($title);
 <html lang="en">
 
 <head>
-    <?php CreateHeader(); ?>
+    <?php include_once "include/header.php"; ?>
 </head>
 
 <body>
