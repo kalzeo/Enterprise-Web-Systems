@@ -39,7 +39,7 @@ $(document).ready(function ()
      *
      * If the min value happens to be 0 but max isn't, NaN will be thrown because the end of the foruma divides by min.
      * To get around this the improvement % will be set to 100% until the min value has an actual value thats divisible.
-     * e.g. 100 * (100 - 0) / 0 = NaN, so set it 100
+     * e.g. 100 * (100 - 0) / 0 = NaN, so set it max * 100
      *
      * If the min and max values are both >0 then the formula will be carried out normally.
      * e.g. 100 * (100 - 90) / 90 = 11.1%
@@ -95,7 +95,6 @@ $(document).ready(function ()
                 },
                 title: {
                     display: true,
-                    //text: `${bestPerformer} Received ${improvementPercentage}% More Clicks`
                     text: [`Best AB Test Performer: ${bestPerformer}`, `${bestPerformer} Has Performed Better By: ${improvementPercentage}%`, ""]
                 }
             }
