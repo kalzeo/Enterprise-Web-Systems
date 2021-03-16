@@ -4,6 +4,7 @@ require_once "assets/php/User.php";
 $user = GetUser();
 ?>
 
+<!--Start: Navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <a class="navbar-brand" href="index.php"><img src="https://img.icons8.com/officel/30/000000/starred-ticket.png"
                                                   alt="Movie Ticket"/></a>
@@ -15,6 +16,7 @@ $user = GetUser();
     </button>
 
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <!--Start: Links on the left side of the navbar-->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link breadcrumb-item font-weight-bold black-text text-uppercase" href="index.php">Home</a>
@@ -28,6 +30,9 @@ $user = GetUser();
                 </li>
             <?php endif; ?>
         </ul>
+        <!--End: Links on the left side of the navbar-->
+
+        <!--Start: Links on the right side of the navbar-->
         <ul class="navbar-nav ml-auto navbar-right-top">
             <?php if (LoggedIn()): ?>
                 <!-- Dropdown menu for profile, settings, etc for logged in users -->
@@ -50,5 +55,7 @@ $user = GetUser();
                 </a>
             <?php endif; ?>
         </ul>
+        <!--End: Links on the right side of the navbar-->
     </div>
 </nav>
+<!--End: Navbar-->

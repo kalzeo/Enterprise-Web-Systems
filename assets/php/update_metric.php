@@ -1,4 +1,6 @@
 <?php
+// Script to handle updating or resetting an AB test metric
+
 require "Database Functions.php";
 if(isset($_POST["method"], $_POST["metric_type"]))
 {

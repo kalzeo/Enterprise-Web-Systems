@@ -24,6 +24,7 @@ SetCurrentPage("A/B Metric Dashboard");
 <body>
 <?php include "include/navbar.php"; ?>
 
+<!--Start: Page breadcrumb-->
 <nav class="first d-md-flex">
     <div class="row breadcrumb indigo lighten-6 first-1 shadow-lg">
         <div class="col-md-8 d-flex justify-content-start">
@@ -38,11 +39,11 @@ SetCurrentPage("A/B Metric Dashboard");
         </div>
     </div>
 </nav>
+<!--End: Page breadcrumb-->
 
 <div class="container my-5">
-
-    <!--Section: Content-->
     <div class="row gutters-sm">
+        <!--Start: AB Test Sidebar-->
         <div class="col-md-4 d-none d-md-block">
             <div class="card">
                 <div class="card-body">
@@ -55,9 +56,13 @@ SetCurrentPage("A/B Metric Dashboard");
                 </div>
             </div>
         </div>
+        <!--End: AB Test Sidebar-->
+
+        <!--Start: Card to show AB test information-->
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body tab-content" id="metric-card">
+                    <!--Start: AB Test 1 (light vs dark mode)-->
                     <div class='tab-pane active' id='lightvsdark-pill' role='tabpanel'
                          aria-labelledby='lightvsdark-tab'>
                         <h6 class='font-weight-bold dark-grey-text pt-3 movie_category_title'>Light Mode vs Dark
@@ -70,7 +75,9 @@ SetCurrentPage("A/B Metric Dashboard");
                         <canvas id='lightvsdark_graph'></canvas>
                         <hr class='dark-grey-text'>
                     </div>
+                    <!--End: AB Test 1-->
 
+                    <!--Start: AB Test 2 (offer 1 vs offer 2)-->
                     <div class='tab-pane' id='homepageheader-pill' role='tabpanel' aria-labelledby='homepageheader-tab'>
                         <h6 class='font-weight-bold dark-grey-text pt-3 movie_category_title'>Offer 1 vs Offer 2</h6>
                         <p class='small lead font-weight-bold dark-grey-text'>A/B test to determine what homepage offer gets more people to press the sign up button based on the deal (% or £) and subsequently sign up.</p>
@@ -102,9 +109,11 @@ SetCurrentPage("A/B Metric Dashboard");
                         <hr class='dark-grey-text'>
                         <!--End: Graphs-->
                     </div>
+                    <!--End: AB Test 2-->
                 </div>
             </div>
         </div>
+        <!--End: Card to show AB test information-->
     </div>
 </div>
 

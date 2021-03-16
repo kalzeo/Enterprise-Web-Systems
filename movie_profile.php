@@ -38,6 +38,8 @@ SetCurrentPage($title);
 
 <body>
 <?php include "include/navbar.php"; ?>
+
+<!--Start: Page breadcrumb-->
 <nav class="first d-md-flex">
     <div class="row breadcrumb indigo lighten-6 first-1 shadow-lg">
         <div class="col-md-8 d-flex justify-content-start">
@@ -53,9 +55,12 @@ SetCurrentPage($title);
         </div>
     </div>
 </nav>
+<!--End: Page breadcrumb-->
 
 <div class="container my-5">
     <div class="row gutters-sm">
+
+        <!--Start: Buy movie panel-->
         <div class="col-md-4 d-none d-md-block">
             <div class="list-group-item d-flex justify-content-center align-items-center py-3">
                 <div class="d-flex flex-column pl-3 font-weight-bold text-uppercase">
@@ -68,6 +73,9 @@ SetCurrentPage($title);
                     id="buy_movie"><i class="far fa-credit-card mr-1"></i> Buy
             </button>
         </div>
+        <!--End: Buy movie panel-->
+
+        <!--Start: Movie information card-->
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
@@ -135,6 +143,7 @@ SetCurrentPage($title);
                 </div>
             </div>
         </div>
+        <!--End: Movie information card-->
     </div>
 </div>
 <script src="assets/js/dark-mode-switch.js" type="text/javascript"></script>

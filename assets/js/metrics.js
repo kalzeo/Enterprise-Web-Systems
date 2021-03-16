@@ -1,3 +1,4 @@
+// Wait until the DOM is ready to execute the JS
 $(document).ready(function ()
 {
     /**

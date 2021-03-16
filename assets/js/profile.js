@@ -1,5 +1,7 @@
+// Wait until the DOM is ready to execute the JS
 $(document).ready(function ()
 {
+    // Delete a user account when the user presses the delete account button on their profile
     $("#delete_account_button").click(function ()
     {
         $.ajax({

@@ -20,6 +20,7 @@ SetCurrentPage("Login");
 <body>
 <?php include_once "include/navbar.php"; ?>
 
+<!--Start: Page breadcrumb-->
 <nav class="first d-md-flex">
     <div class="row breadcrumb indigo lighten-6 first-1 shadow-lg">
         <div class="col-md-8 d-flex justify-content-start">
@@ -34,10 +35,11 @@ SetCurrentPage("Login");
         </div>
     </div>
 </nav>
+<!--End: Page breadcrumb-->
 
 
 <div class="container my-5 px-0">
-    <!--Section: Content-->
+    <!--Start: Login Form-->
     <section class="p-5 my-md-5 text-center">
         <form class="my-5 mx-md-5">
             <div class="row">
@@ -53,13 +55,13 @@ SetCurrentPage("Login");
                                 <input type="text" id="username" class="form-control mb-4" placeholder="Username">
                                 <!-- Password -->
                                 <input type="password" id="password" class="form-control" placeholder="Password">
-                                <small id="passwordHelpBlock" class="form-text text-right blue-text">
+                                <!--Signup-->
+                                <small id="signupHelpBlock" class="form-text text-right blue-text">
                                     <a href="signup.php">Not got an account? Sign up here!</a>
                                 </small>
+                                <!--Submit-->
                                 <div class="text-center">
-                                    <button type="button" id="loginSubmitButton"
-                                            class="btn btn-outline-orange my-4 waves-effect">Login
-                                    </button>
+                                    <button type="button" id="loginSubmitButton"class="btn btn-outline-orange my-4 waves-effect">Login</button>
                                 </div>
                             </form>
                             <!-- Form -->
@@ -70,7 +72,7 @@ SetCurrentPage("Login");
             </div>
         </form>
     </section>
-    <!--Section: Content-->
+    <!--End: Login Form-->
 </div>
 
 <script src="assets/js/login.js"></script>

@@ -1,21 +1,18 @@
 <?php
 session_start();
 
-use Tmdb\Repository\GenreRepository;
-
-
 require_once "assets/php/Page Functions.php";
-require_once('vendor/autoload.php');
+require_once "vendor/autoload.php";
 
 // Setup the TMDB API client using the php-TMDB wrapper
 $client = require_once("assets/vendor/php-tmdb/setup-client.php");
 
 // API call to fetch the available movie genres
+use Tmdb\Repository\GenreRepository;
 $genreRepository = new GenreRepository($client);
 $genreList = $genreRepository->loadMovieCollection();
 
 SetCurrentPage("Home");
-
 ?>
 
 <!DOCTYPE html>

@@ -11,15 +11,13 @@ $(document).ready(function ()
                 'username': $("#username").val(),
                 'password': $("#password").val()
             },
-            success: function (result) {
+            success: function (result)
+            {
                 // Redirect if successful otherwise display an error
                 if (result === "Success")
                     window.location.href = "index.php";
                 else
                     alert(result);
-            },
-            error: function () {
-                pass;
             }
         });
     })

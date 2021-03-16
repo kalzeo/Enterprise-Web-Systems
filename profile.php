@@ -30,6 +30,8 @@ SetCurrentPage($username);
 
 <body>
 <?php include "include/navbar.php"; ?>
+
+<!--Start: Page breadcrumb-->
 <nav class="first d-md-flex">
     <div class="row breadcrumb indigo lighten-6 first-1 shadow-lg">
         <div class="col-md-8 d-flex justify-content-start">
@@ -48,21 +50,24 @@ SetCurrentPage($username);
         </div>
     </div>
 </nav>
-
+<!--End: Page breadcrumb-->
 
 <div class="container my-5">
-    <!--Section: Name Header -->
+    <!--Start: Account Info-->
     <section class="px-md-5 mx-md-5 py-5 text-center white-text elegant-color z-depth-1 rounded">
         <h3>Profile of <?php echo "{$username}"; ?></h3>
+
         <?php if ($ownAccount): ?>
+            <!--If it's the users own account, give them the option to delete it-->
             <script>var userID = <?= $userID ?></script>
             <button class="btn btn-red btn-md" data-toggle="modal" data-target="#exampleCentralModal1">Delete Account
             </button>
         <?php endif; ?>
     </section>
-    <!--Section: Name Header -->
+    <!--End: Account Info-->
 </div>
 
+<!--Start: Delete Account Model-->
 <div class="modal fade" id="exampleCentralModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content text-center">
@@ -79,6 +84,8 @@ SetCurrentPage($username);
         </div>
     </div>
 </div>
+<!--End: Delete Account Model-->
+
 <script src="assets/js/profile.js"></script>
 </body>
 </html>

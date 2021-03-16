@@ -1,16 +1,14 @@
+/* CSS for the body */
 body
 {
     background-color: white;
-
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     letter-spacing: 0.01em;
     color: #39464e;
 }
 
-/*******************
-Start NavBar
-*******************/
+/* CSS for the navbar */
 .navbar
 {
     padding: 0;
@@ -21,6 +19,7 @@ Start NavBar
     min-height: 60px;
 }
 
+/* CSS for the navbar brand */
 .navbar-brand
 {
     display: inline-block !important;
@@ -33,26 +32,27 @@ Start NavBar
     font-weight: 700 !important;
 }
 
-.navbar-right-top {}
-
-.navbar-right-top .nav-item {
+/* CSS for items on the right side of the navbar */
+.navbar-right-top .nav-item
+{
     border-right: 1px solid #e6e6f2
 }
 
-.navbar-right-top .nav-item:last-child {
+.navbar-right-top .nav-item:last-child
+{
     border: none
 }
 
-.navbar-right-top .nav-item .nav-link {
+.navbar-right-top .nav-item .nav-link
+{
     padding: 13px 20px !important;
     font-size: 16px !important;
     line-height: 2 !important;
     color: #565656;
 }
 
-.nav-user-dropdown {}
-
-.nav-user-dropdown .dropdown-item {
+.nav-user-dropdown .dropdown-item
+{
     display: block !important;
     width: 100% !important;
     padding: 12px 22px 15px !important;
@@ -65,15 +65,18 @@ Start NavBar
     border: 0 !important;
 }
 
-.nav-user-dropdown .dropdown-item:hover {
+.nav-user-dropdown .dropdown-item:hover
+{
     background-color: #f6f8fa !important;
     color: #565656 !important;
 }
 
-.nav-user-dropdown .dropdown-item:hover {
+.nav-user-dropdown .dropdown-item:hover
+{
     background-color: #f7f7fb;
 }
 
+/* CSS for rounded circle avatars */
 .rounded-circle
 {
     border-radius: 50% !important;
@@ -84,13 +87,9 @@ Start NavBar
     height: 30px !important;
     width: 30px;
 }
-/*******************
-End NavBar
-*******************/
 
-/*******************
-Start Breadcrumb
-*******************/
+
+/* CSS for the breadcrumb */
 .breadcrumb
 {
     display: -webkit-box;
@@ -113,14 +112,8 @@ Start Breadcrumb
 {
     background-color: white !important;
 }
-/*******************
-End Breadcrumb
-*******************/
 
-
-/*
-Movie Card
- */
+/* CSS for the movie cards and description */
 .movieCard
 {
     height: 725px !important;
@@ -137,14 +130,19 @@ Movie Card
     text-overflow: ellipsis;
 }
 
-.card {
+.card
+{
     flex-direction: row !important;
     align-items: center !important;
 }
-.card-title {
+
+.card-title
+{
     font-weight: bold !important;
 }
-.card img {
+
+.card img
+{
     width: 30% !important;
     border-top-right-radius: 0 !important;
     border-bottom-left-radius: calc(0.25rem - 1px) !important;
@@ -157,9 +155,7 @@ Movie Card
     text-align: center !important;
 }
 
-/*******************
-Responsiveness
-*******************/
+/* Responsiveness */
 @media (max-width: 768px)
 {
     .breadcrumb
@@ -197,22 +193,29 @@ Responsiveness
         max-width: 60px;
     }
 
-    a {
+    a
+    {
         display: none;
     }
-    .card-body {
+    .card-body
+    {
         padding: 0.5em 1.2em;
     }
-    .card-body .card-text {
+    .card-body .card-text
+    {
         margin: 0;
     }
-    .card img {
+
+    .card img
+    {
         width: 50%;
     }
 }
 
-@media only screen and (max-width: 1200px) {
-    .card img {
+@media only screen and (max-width: 1200px)
+{
+    .card img
+    {
         width: 40%;
     }
 }

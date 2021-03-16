@@ -19,6 +19,8 @@ SetCurrentPage("Sign up");
 
 <body>
 <?php include_once "include/navbar.php"; ?>
+
+<!--Start: Page breadcrumb-->
 <nav class="first d-md-flex">
     <div class="row breadcrumb indigo lighten-6 first-1 shadow-lg">
         <div class="col-md-8 d-flex justify-content-start">
@@ -28,21 +30,17 @@ SetCurrentPage("Sign up");
             <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="signup.php">sign
                     up</a></li>
         </div>
+
         <div class="col-md-4 d-flex justify-content-end font-weight-bold">
             <?php include "include/dark_mode.php"; ?>
         </div>
     </div>
 </nav>
-
+<!--End: Page breadcrumb-->
 
 
 <div class="container my-5 px-0">
-    <?php
-
-
-
-    ?>
-    <!--Section: Content-->
+    <!--Start: Signup Form-->
     <section class="p-5 my-md-5 text-center">
         <form class="my-5 mx-md-5">
             <div class="row">
@@ -72,7 +70,7 @@ SetCurrentPage("Sign up");
             </div>
         </form>
     </section>
-    <!--Section: Content-->
+    <!--End: Signup Form-->
 </div>
 
 <script src="assets/js/signup.js"></script>

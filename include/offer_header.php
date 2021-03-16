@@ -1,4 +1,10 @@
 <?php
+/**
+ * Script to randomly display one of the two offer headers for the homepage.
+ *
+ * The offer details are stored in an array that has an ID, offer, header style, and button style and are displayed
+ * accordingly depending on what value is randomly outputted.
+ */
 $random = rand(1, 10);
 $offerDetails = [];
 
