@@ -53,7 +53,7 @@ $(document).ready(function ()
         return min === 0 && max === 0
             ? 0
             : min === 0
-            ? 100
+            ? max * 100
             : Math.round(100 * (max - min) / min)
     }
 
