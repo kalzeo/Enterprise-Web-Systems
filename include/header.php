@@ -15,7 +15,7 @@ echo '<noscript>Enable JavaScript</noscript>
 <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
 
 <!-- Font Awesome 5.8.2 -->
-<link type="text/css" rel="stylesheet" href="assets/vendor/bootstrap/css/all.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
 <!-- Google Fonts -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
