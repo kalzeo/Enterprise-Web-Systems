@@ -1,13 +1,13 @@
 // Wait until the DOM is ready before executing any JS
 $(document).ready(function ()
 {
-    // Attempt to login in the user when the submit button is pressed on the login page
-    $("#loginSubmitButton").click(function ()
+    // Attempt to create the user account when the sign up button is pressed
+    $("#signupSubmitButton").click(function ()
     {
         /*
         Access the GET parameter from the URL instead of setting a JS variable in the signup.php file
 
-        Code taken and adapted from:
+        Code taken from:
         https://stackoverflow.com/questions/5448545/how-to-retrieve-get-parameters-from-javascript#answer-5448595
          */
         let offer = null;
@@ -35,6 +35,7 @@ $(document).ready(function ()
             success: function (result)
             {
                 alert(result);
+                window.location.href = "login.php";
             }
         });
     })

@@ -59,7 +59,7 @@ SetCurrentPage("Sign up");
                                 <!-- Password -->
                                 <input type="password" id="password" class="form-control" placeholder="Password">
                                 <div class="text-center">
-                                    <button type="button" id="loginSubmitButton"
+                                    <button type="button" id="signupSubmitButton"
                                             class="btn btn-outline-orange my-4 waves-effect">Sign up
                                     </button>
                                 </div>
